@@ -16,14 +16,12 @@ ul, li{
 }
 /*form*/
 
-form .category , form .search:hover{
+form.category, form .search:hover{
 color:var(--bg-header);
 }
 
-
 .menu{
    background-color: var( --bg-menu);
-
 }
 
 /* slider */

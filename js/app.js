@@ -38,4 +38,17 @@ rightChevron.addEventListener('click', function(){
     updateBackground();
 });
 
+
+//  add prodact
+// const baseURL = `https://aamznn.vercel.app/?query`;
+// https://aamznn.vercel.app/?query=acer&_rsc=1iwkq
+
+// https://aamznn.vercel.app/products/4?_rsc=1iwkq
+
+
+// https://aamznn.vercel.app/products/1?_rsc=1pawi`
+
+// const demo = fetch(`https://aamznn.vercel.app/?query=acer&_rsc=1iwkq`, { mode: 'no-cors' });
+
+
   
