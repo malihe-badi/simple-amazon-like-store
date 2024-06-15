@@ -18,13 +18,9 @@ ul, li{
 form .category , form .search:hover{
 color:var(--bg-header);
 }
-
-
 .menu{
    background-color: var( --bg-menu);
-
 }
-
 /* slider */
 .slider{
     width: 100%;
@@ -51,7 +47,6 @@ color:var(--bg-header);
     border-radius: 15px;
 
 }
-
 /* footer */
 .back-to-top{
     background-color: var(--bg-menu);
