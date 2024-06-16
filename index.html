@@ -11,7 +11,7 @@
 </head>
 <body>
   <header id="header container-fluid">
-  <nav class="nav text-light row d-flex justify-content-center  py-3">
+  <nav class="nav text-light row d-flex justify-content-center pt-3">
     <div class="col-2 d-flex ">
         <div class="col-6">
             <a href="#"><img class="img-fluid " src="images/logo.webp" alt="logo"></a>
@@ -50,7 +50,7 @@
         <div> <i class="fas  fa-shopping-cart fs-2"></i><span class="fw-bold">Cart</span></div>
     </div>
   </nav>
-    <!-- menu -->
+    <!--------------------------------- menu ----------------------------->
   <div class="menu w-100  container-fluid">
      <ul class=" d-flex p-2 text-light m-0 ">
           <i class="fas fa-bars pt-1 "></i><span class=" fs-5 fw-bold px-3"> All</span>
@@ -62,58 +62,36 @@
  </ul>
   </div>
   </header> 
-   <main class="container-fluid">
-    <!-- slider -->
-       <div class="slider">
+   <main class="main bg-gradient ">
+    <!--------------------------------------- slider -------------------------------->
+         <div class="slider">
             <div class="chevron">
-               <button class="left-chevron clicked">
-                   <i class="fas  fa-chevron-left  text-dark"></i>
-               </button>
-               <button class="right-chevron">
-                   <i class="fas   fa-chevron-right  text-dark"></i>
+                <button class="left-chevron clicked">
+                    <i class="fas  fa-chevron-left  text-dark"></i>
                 </button>
-            </div>
-            <div class="products container-fluid">
-            <div class="w-100 text-center bg-light container-fluid ps-3  "> 
-                 <p class="mt-6 p-2" >You are on amazon.com. You can also shop on Amazon Germany for millions of products with fast local delivery. Click here to go to <a class="text-success " href="#">amazon.de</a></p>
-            </div>
+                <button class="right-chevron">
+                    <i class="fas   fa-chevron-right  text-dark"></i>
+                 </button>
+             </div>
+             <div class="container-fluid">
+             <div class="w-100 text-center bg-light container-fluid "> 
+                  <p class="p-2" >You are on amazon.com. You can also shop on Amazon Germany for millions of products with fast local delivery. Click here to go to <a class="text-success " href="#">amazon.de</a></p>
+             </div>    
+         </div>
+        </div>
+        <!------------------------- Products ------------------------------>
+        <div class="products-list container-fluid d-flex row gap-3">
 
-            <!-- Products -->
-
-            <div class="products-list container-fluid d-flex row ps-5 ">
-                <!-- <div class="row d-flex  flex-column">
-                       <div class="col-2 bg-light">
-                        <a class="text-dark" href="">
-                            <img class=" border-bottom text-dark" src="" alt="">
-                            <h2><span class="opacity-50">$</span>1080<span class="opacity-50">99</span></h2>
-                            <span class="opacity-50">$ 1200</span>  
-                            <p class="pt-2">Acer Aspire 3 A315-24P-R7VH Slim Laptop |
-                                 15.6&quot; Full HD IPS Display |
-                                 AMD Ryzen 3 7320U Quad-Core ...</p> 
-                             <img src="images/basket.webp" alt="">
-                             <img src="images/basket.webp" alt="">
-                             <img src="images/basket.webp" alt="">
-                             <img src="images/basket.webp" alt="">
-                             <img src="images/basket.webp" alt="">
-                            <p class="pt-2">see more ...</p>
-                        </a> 
-                       </div>
-                   
-                   <div class="col-lg-6"></div>
-                
-                   </div> -->
-              </div>
-
-
-       </div>
-   
+    </div>
+              
   </main>
-  <footer id="footer">
-    <div class="back-to-top  w-100  container-fluid p-3  d-flex justify-content-center">
+
+  <footer class="mt-5">
+    <div class="back-to-top  w-100 p-3  d-flex  justify-content-center">
         <a class="text-center 
      text-light" href="#">Back to top</a>
      </div>
-     <div class="footer">
+     <div class="footer container-fluid">
         <div class="container d-flex justify-content-around">
             <ul>
                 <h3 class="mt-5 pb-3 fs-6 text-light" >Get to Know Us</h3>
@@ -169,6 +147,7 @@
      </div>
 
   </footer> 
+
     <script src="js/app.js"></script>
 </body>
 </html>
