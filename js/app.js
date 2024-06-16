@@ -38,16 +38,17 @@ rightChevron.addEventListener('click', function(){
     updateBackground();
 });
 
-// ************************************************* product data *************************************                          
-const products = [
+// ************************************************* product data ************************************* 
+const productsData = [
     {
         id: 1,
         name: "Acer Aspire 3 A315-24P-R7VH Slim Laptop",
+        titel:"| 15.6&quot; Full HD IPS Display | AMD Ryzen 3 7320U Quad-Core Processor | AMD Radeon Graphics | 8GB LPDDR5 | 128GB NVMe SSD |",
         price: 1080.99,
         originalPrice: 1200,
         imageUrl: "./images/Acer.webp", 
         reviews: 1752,
-        category: "laptop",
+        category: "laptops",
     },
     {
         id: 2,
@@ -55,56 +56,91 @@ const products = [
         price: 337.491,
         originalPrice: 374.99,
         imageUrl: "./images/Apple iPhone 13.webp", 
-        rating: 4.5,
-        reviews: 1752, 
+        reviews: 1752,
+        category: "mobiles", 
     },
     {
         id: 3,
-        name: "CASEKOO for iPhone 13 Pro Case",
+        name: "CASEKOO for iPhone 13 Pro",
+        titel:"Case Crystal Clear, [Not Yellowing] [Military Drop Protection] Shockproof Protective iPhone 13 Pro Phone Case 6.1 inch 2021, Clear",
         price: 10.8,
         originalPrice: 12,
         imageUrl: "./images/CASEKOO.webp", 
-        rating: 4.5,
         reviews: 1752,
+        category: "mobile accessories",
     },
     {
         id: 4,
         name: "HP Notebook Laptop",
+        titel:", 15.6&quot; HD Touchscreen, Intel Core i3-1115G4 Processor, 32GB RAM, 1TB PCIe SSD, Webcam, Type-C, HDMI, SD Card Reader, Wi-Fi, Windows 11 Home, Silver",
         price: 407.7,
         originalPrice: 453,
         imageUrl: "./images/HP.webp", 
-        rating: 4.5,
         reviews: 1752,
-
+        category: "laptops",
     },
     {
         id: 5,
-        name: "Apple 2022 MacBook Air Laptop with M2 chip",
+        name: "Apple 2022 MacBook Air Laptop with M2",
+        titel:"chip: 13.6-inch Liquid Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, 1080p FaceTime HD Camera.",
         price: 756,
         originalPrice: 840,
         imageUrl: "./images/Apple 2022-Laptop.webp", 
-        rating: 4.5,
         reviews: 1752,
+        category: "laptops",
     },
     {
         id: 6,
         name: "Samsung Galaxy S24 ultra cell phone ",
+        titel:", 256GB AI Smartphone, Unlocked Android, 200MP, 100x Zoom Cameras, Long Battery Life, S Pen, US Version, 2024, Titanium Black",
         price:944.1,
         originalPrice:1049,
-        imageUrl: "./images/Samsung-Galaxy-S24.webp", 
-        rating: 4.5,
-        reviews: 1752,
+        imageUrl: "./images/Samsung-Galaxy-S24 .webp", 
+        category: "mobiles", 
     },
     {
         id: 7,
         name: "OGMAPLE Cell Phone Stand",
+        titel:", Angle Height Adjustable Cell Phone Holder with Silicon Pad for Desk Fully Forldable Mobile Phone Holder Compatible with All Mobile Phones, MT-6, (White)",
         price:4.5,
         originalPrice:5,
         imageUrl: "./images/OGMAPLE.webp", 
-        rating: 4.5,
         reviews: 1752,
+        category: "mobile accessories",
     }
-]
+];
+localStorage.setItem("productsData" ,JSON.stringify(productsData));
+const products = JSON.parse(localStorage.getItem("productsData"));
+
+function displayProducts (products){
+    const productslist = document.querySelector(".products-list");
+     products.forEach(product => { 
+        const productElement = document.createElement("div");
+        productElement.className = "product col-2 bg-light";
+        productElement.innerHTML = `<a  >
+        <img class="border-bottom img-fluid" src="${product.imageUrl}" alt="${product.name}">
+            <p class=" mt-5 fs-4"><span class="opacity-50 fs-6">$ </span>${product.originalPrice.toFixed(2)} <span class="opacity-50 fs-6">99</span></p>
+            <p class="original-price"> <span class="opacity-50 fs-6">$ ${product.price.toFixed(2)}</span> </p>
+          <h2 class=" fs-6 opacity-75 mt-4">${product.name}</h2>
+        
+        
+          <img src="images/basket.webp" alt="">
+          <img src="images/basket.webp" alt="">
+          <img src="images/basket.webp" alt="">
+         <img src="images/basket.webp" alt="">
+         <img src="images/basket.webp" alt="">
+         <span class="fs-6">${product.reviews}</span>
+ 
+         <p class="pt-2">see more ...</p>
+        </a>`;
+         
+          productslist.appendChild(productElement);
+
+     });
+}
+displayProducts(productsData);
+
+
 
 
   

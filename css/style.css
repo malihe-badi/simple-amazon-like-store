@@ -50,8 +50,23 @@ color:var(--bg-header);
     border-radius: 15px;
 
 }
+/******************************************* products *********************************/
+.product {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+    text-align: center;
+  }
+  .product img {
+    max-width: 100%;
+    height: auto;
+  }
 
-/* footer */
+  .product .original-price {
+    text-decoration: line-through;
+  }
+
+/**************************************** footer *****************************************/
 .back-to-top{
     background-color: var(--bg-menu);
 }
