@@ -16,13 +16,18 @@ ul, li{
   position: relative;
 }
 /*************************************************form**************************************/
+.input-group .btn:hover{
+    color:var(--bg-header);
+    }
 .dropdown-category{
     display: none;
     position: absolute;
     top: 0;
     left: 0;
     margin-top: 40px;
-    z-index: 1;
+}
+.dropdown-category > li:hover{
+   background-color: var(--bs-info);
 }
 .dropdown-category li{
    border-bottom: 1px solid var(--bs-info);
@@ -36,17 +41,17 @@ ul, li{
 .dropdown-category li:last-child{
     border-bottom: none;
 }
-.input-group .btn:hover{
-color:var(--bg-header);
-}
+
 .dropdown-category.show {
     display: block;
 }
+/*******Category selection**********/
 
+
+/**************************************************menu*************************/
 .menu{
    background-color: var( --bg-menu);
 }
-
 /**************************************** slider****************************/
 .slider{
     width: 100%;

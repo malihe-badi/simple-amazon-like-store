@@ -112,7 +112,8 @@ function displayProducts (products){
      products.forEach(product => { 
         const productElement = document.createElement("div");
         productElement.className = "product col-2  bg-light rounded-1 ";
-        productElement.innerHTML = `<a>
+        productElement.innerHTML = `
+        <a data-filter="${product.category}">
         <img class="border-bottom   img-fluid p-3 " src="${product.imageUrl}" alt="${product.name}">
             <p class=" mt-4 fs-4"><span class="opacity-50 fs-6">$ </span>${product.originalPrice.toFixed(2)}<span class="opacity-50 fs-6">99</span></p>
             <p class="original-price"> <span class="opacity-50 fs-6">$ ${product.price.toFixed(2)}</span> </p>
@@ -130,70 +131,38 @@ function displayProducts (products){
 };
 displayProducts(productsData);
 // ************************************************* category *************************************  
+
+
 const categoryButton = document.querySelector(".category");
 const dropdownCategory = document.querySelector(".dropdown-category");
+
+
+
 categoryButton.addEventListener("click", function(e) {
     e.stopPropagation();
     dropdownCategory.classList.add("show");
 });
-//     Closing the category menu
+    // filter
+    const filters = document.querySelectorAll(".dropdown-category li");
+    filters.forEach(function (filter) {
+        filter.addEventListener("click", function(){
+            // e.preventDefault();
+            const category = this.dataset.select.toLowerCase();
+            const filteredProducts = category === "All" ? products : products.filter(product => product.category === category);
+            displayProducts(filteredProducts);
+            dropdownCategory.classList.remove("show");
+            categoryButton.innerText = this.innerText;
+      });
+//     Closing the category 
 window.addEventListener("click", (event) => {
     if (!categoryButton.contains(event.target) && !dropdownCategory.contains(event.target)) {
         dropdownCategory.classList.remove("show");
     }
 });
 
-const searchForm = document.getElementById("search-form");
-searchForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    console.log("Form submission prevented");
+
+
+
+
+
 });
-console.log(categoryButton);
-// categoryButton.onclick = function() {
-//     this.dropdownCategor.add(".show"); 
-// }
-
-//   const togleDropdown = function (){
-//     // dropdownCategory.classList.toggle("show")
-//   };
-//   categoryButton.addEventListener("click", function(e){
-    // e.stopPropagation();
-//     togleDropdown();
-//   });
-//   categoryButton();
-
-
-
-// window.addEventListener("click", (event) => {
-//     if (!categoryButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-//         dropdownMenu.style.display = "none";
-//     }
-// });
-// category.addEventListener("click", () => {
-//     const subCategory = document.createElement('li');
-//     subCategory.className = " bg-light";
-//     subCategory.innerHTML =`
-//                           <li>All</li>
-//                           <li>mobiles</li>
-//                           <li>laptops</li>
-//                           <limobile accessories>All</limobile>
-//                           ` ;
-
-//                           category.appendChild(subCategory);
-
-
-    // `<li class="my-1 pt-1 opacity-50 text-light"><a class="mb-3 text-light" href="#">All</a></li>
-    // <li class="my-1 pt-1 opacity-50 text-light"><a class="mb-3 text-light" href="${category.mobiles}">mobiles</a></li>
-    // <li class="my-1 pt-1 opacity-50 text-light"><a class="mb-3 text-light" href="${category.laptops}">laptops</a></li>
-    // <li class="my-1 pt-1 opacity-50 text-light"><a class="mb-3 text-light" href="${category.mobile-accessories}">mobile accessories</a></li>`
-
-// })
-
-//    const openCategory.addEventListener("click" , function(){
-   
-// })
-
-
-
-
-  
