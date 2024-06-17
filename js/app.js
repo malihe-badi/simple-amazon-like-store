@@ -65,7 +65,7 @@ const productsData = [
         originalPrice: 12,
         imageUrl: "./images/CASEKOO.webp", 
         reviews: 1.752,
-        category: "mobile accessories",
+        category: "mobile-accessories",
     },
     {
         id: 4,
@@ -101,7 +101,7 @@ const productsData = [
         originalPrice:5,
         imageUrl: "./images/OGMAPLE.webp", 
         reviews: 1.752,
-        category: "mobile accessories",
+        category: "mobile-accessories",
     }
 ];
 localStorage.setItem("productsData" ,JSON.stringify(productsData));
@@ -130,11 +130,68 @@ function displayProducts (products){
 };
 displayProducts(productsData);
 // ************************************************* category *************************************  
-const category = document.querySelector(".category");
+const categoryButton = document.querySelector(".category");
+const dropdownCategory = document.querySelector(".dropdown-category");
+categoryButton.addEventListener("click", function(e) {
+    e.stopPropagation();
+    dropdownCategory.classList.add("show");
+});
+//     Closing the category menu
+window.addEventListener("click", (event) => {
+    if (!categoryButton.contains(event.target) && !dropdownCategory.contains(event.target)) {
+        dropdownCategory.classList.remove("show");
+    }
+});
 
-category.addEventListener("click" , function(){
+const searchForm = document.getElementById("search-form");
+searchForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    console.log("Form submission prevented");
+});
+console.log(categoryButton);
+// categoryButton.onclick = function() {
+//     this.dropdownCategor.add(".show"); 
+// }
+
+//   const togleDropdown = function (){
+//     // dropdownCategory.classList.toggle("show")
+//   };
+//   categoryButton.addEventListener("click", function(e){
+    // e.stopPropagation();
+//     togleDropdown();
+//   });
+//   categoryButton();
+
+
+
+// window.addEventListener("click", (event) => {
+//     if (!categoryButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+//         dropdownMenu.style.display = "none";
+//     }
+// });
+// category.addEventListener("click", () => {
+//     const subCategory = document.createElement('li');
+//     subCategory.className = " bg-light";
+//     subCategory.innerHTML =`
+//                           <li>All</li>
+//                           <li>mobiles</li>
+//                           <li>laptops</li>
+//                           <limobile accessories>All</limobile>
+//                           ` ;
+
+//                           category.appendChild(subCategory);
+
+
+    // `<li class="my-1 pt-1 opacity-50 text-light"><a class="mb-3 text-light" href="#">All</a></li>
+    // <li class="my-1 pt-1 opacity-50 text-light"><a class="mb-3 text-light" href="${category.mobiles}">mobiles</a></li>
+    // <li class="my-1 pt-1 opacity-50 text-light"><a class="mb-3 text-light" href="${category.laptops}">laptops</a></li>
+    // <li class="my-1 pt-1 opacity-50 text-light"><a class="mb-3 text-light" href="${category.mobile-accessories}">mobile accessories</a></li>`
+
+// })
+
+//    const openCategory.addEventListener("click" , function(){
    
-})
+// })
 
 
 
