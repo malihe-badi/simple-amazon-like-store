@@ -6,20 +6,20 @@
     <title>home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
-   
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-   
 </head>
 <body>
-  <header id="header container">
-  <nav class="nav  w-100 py-2 text-light row d-flex justify-content-center align-items-center">
-    <div class="col-1">
-        <a href="#"><img class="img-fluid" src="images/logo.webp" alt="logo"></a>
-    </div>
-    <div class="location col-1 p-0">
-      <img class="mt-2 fs-6" src="images/locationIcon.png" alt="locationIcon"><span class="fs-6 opacity-50 mb-0" >Deliver to</span>
-      <p class="fw-bold text-center m-0">Iran</p>
+  <header id="header container-fluid">
+  <nav class="nav text-light row d-flex justify-content-center pt-3">
+    <div class="col-2 d-flex ">
+        <div class="col-6">
+            <a href="#"><img class="img-fluid " src="images/logo.webp" alt="logo"></a>
+        </div>
+        <div class="location col-6 p-0">
+          <img class="mt-2 fs-6" src="images/locationIcon.png" alt="locationIcon"><span class="fs-6 opacity-50 mb-0" >Deliver to</span>
+          <p class="fw-bold text-center m-0">Iran</p>
+        </div>
     </div>
    <div class="col-6 p-0">
     <form class="input-group w-100 ">
@@ -27,28 +27,30 @@
         </button>
         <input type="text" class="form-control" placeholder="Search Amazon">
         <button class="search btn bg-orange "><i class="fas fa-search  fs-5 ps-1"></i></button> 
-       
     </form>
    </div>
-    <div class="language col-1 ">
-        <img src="images/Flag.webp" alt="Flag">
-        <span class="fw-normal">EN</span>
-        <i class="fas fa-caret-down opacity-50"></i>
-    </div>
-    <div class="sign-in col-1 ">
-        <span class="fw-lighter">Hello, sign in</span>
-            <p class="fw-bold">Account & Lists<i class="fas fa-caret-down ps-1 opacity-50"></i></p>
-    </div>
-    <div class="returns col-1 p-0">
-        <span class="fw-lighter">Returns</span>
-        <p class="fw-bold">& Orders</p>
-    </div>
-    <div class="col-1 p-0">
-        <div><span class="basket-number text-center ms-3 text-danger fs-5 text-center fw-bold">0</span></div> 
-        <div> <i class="fas  fa-shopping-cart fs-2  mt-0"></i><span class="fs-6 fw-bold">Cart</span></div>
+       <div class="sign-in col-3 row d-flex justify-content-center ">
+          <div class="language col-4 ">
+            <img src="images/Flag.webp" alt="Flag">
+            <span class="fw-normal">EN</span>
+            <i class="fas fa-caret-down opacity-50"></i>
+          </div>
+           <div class="returns p-0 col-4">
+               <span class="fw-normal ">Hello,sign in</span>
+                <p class="fw-bold">Account & Lists<i class="fas fa-caret-down ps-1 opacity-50"></i></p>
+           </div>
+           <div class="returnsp-0 col-4">
+           <span class="fw-normal">Returns</span>
+           <p class="fw-bold">& Orders</p>
+    
+           </div>
+       </div>
+        <div class="col-1">
+        <div><span class="basket-number ms-3 text-danger fw-bold">0</span></div> 
+        <div> <i class="fas  fa-shopping-cart fs-2"></i><span class="fw-bold">Cart</span></div>
     </div>
   </nav>
-    <!-- menu -->
+    <!--------------------------------- menu ----------------------------->
   <div class="menu w-100  container-fluid">
      <ul class=" d-flex p-2 text-light m-0 ">
           <i class="fas fa-bars pt-1 "></i><span class=" fs-5 fw-bold px-3"> All</span>
@@ -60,49 +62,36 @@
  </ul>
   </div>
   </header> 
-   <main class="container-fluid">
-    <!-- slider -->
-       <div class="slider">
+   <main class="main bg-gradient ">
+    <!--------------------------------------- slider -------------------------------->
+         <div class="slider">
             <div class="chevron">
-               <button class="left-chevron clicked">
-                   <i class="fas  fa-chevron-left  text-dark"></i>
-               </button>
-               <button class="right-chevron">
-                   <i class="fas   fa-chevron-right  text-dark"></i>
+                <button class="left-chevron clicked">
+                    <i class="fas  fa-chevron-left  text-dark"></i>
                 </button>
-            </div>
-            <div class="products container-fluid">
-            <div class="w-100 text-center bg-light container-fluid ps-3  "> 
-                 <p class="mt-6 p-2" >You are on amazon.com. You can also shop on Amazon Germany for millions of products with fast local delivery. Click here to go to <a class="text-success " href="#">amazon.de</a></p>
-            </div>
+                <button class="right-chevron">
+                    <i class="fas   fa-chevron-right  text-dark"></i>
+                 </button>
+             </div>
+             <div class="container-fluid">
+             <div class="w-100 text-center bg-light container-fluid "> 
+                  <p class="p-2" >You are on amazon.com. You can also shop on Amazon Germany for millions of products with fast local delivery. Click here to go to <a class="text-success " href="#">amazon.de</a></p>
+             </div>    
+         </div>
+        </div>
+        <!------------------------- Products ------------------------------>
+        <div class="products-list container-fluid d-flex row gap-3">
 
-            <!-- Products -->
-
-            <div class="products container-fluid ps-5">
-                <div class="row">
-                   <div class="col-lg-6 d-flex flex-md-column ">
-                    <a>
-                        <img src="" alt="">
-                        <h2><span>$</span>1200<span>99</span></h2>  
-                        <p></p> 
-                        <span>see more ...</span>
-                    </a> 
-                   </div>
-                   <div class="col-lg-6"></div>
-                
-                   </div>
-              </div>
-
-
-       </div>
-   
+    </div>
+              
   </main>
-  <footer id="footer">
-    <div class="back-to-top  w-100  container-fluid p-3  d-flex justify-content-center">
+
+  <footer class="mt-5">
+    <div class="back-to-top  w-100 p-3  d-flex  justify-content-center">
         <a class="text-center 
      text-light" href="#">Back to top</a>
      </div>
-     <div class="footer">
+     <div class="footer container-fluid">
         <div class="container d-flex justify-content-around">
             <ul>
                 <h3 class="mt-5 pb-3 fs-6 text-light" >Get to Know Us</h3>
@@ -158,6 +147,7 @@
      </div>
 
   </footer> 
+
     <script src="js/app.js"></script>
 </body>
 </html>
