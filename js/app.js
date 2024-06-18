@@ -11,32 +11,38 @@ const sliderImages = [
 let currentSlide = 0 ;
 
 function updateBackground(){
-    slid.style.background=`url(${sliderImages[currentSlide]})no-repeat right top `;
+    slid.style.background=`url(${sliderImages[currentSlide]})no-repeat right top`;
 };
-updateBackground();
-rightChevron.addEventListener('click', function(){
-    rightChevron.style.border = '3px solid var(--bs-green)';
-    currentSlide ++ ;
+function changhSlide(step){
+    currentSlide += step;
     if(currentSlide >= sliderImages.length){
         currentSlide = 0;
+    }else if(currentSlide < 0){
+        currentSlide = sliderImages.length - 1;
     }
+    updateBackground();
+}
+updateBackground();
+setInterval(()=> changhSlide(1),3000);
+
+rightChevron.addEventListener('click', function(){
+    rightChevron.style.border = '3px solid var(--bs-green)';
+    changhSlide(1);
     setTimeout (() => {
         rightChevron.style.border = 'none';
      },1000);
-    updateBackground();
 });
  leftChevron.addEventListener('click', function(){
     leftChevron.style.border = '3px solid var(--bs-green)';
-    currentSlide -- ;
-    if(currentSlide < 0){
-        currentSlide = sliderImages.length -1;
-    }
+    changhSlide(-1);
     setTimeout (() => {
         leftChevron.style.border = 'none';
      },1000);
 
+
     updateBackground();
 });
+
 
 // ************************************************* product data ************************************* 
 const productsData = [
@@ -104,65 +110,68 @@ const productsData = [
         category: "mobile-accessories",
     }
 ];
+  
 localStorage.setItem("productsData" ,JSON.stringify(productsData));
 const products = JSON.parse(localStorage.getItem("productsData"));
 
+// Clear previous products
 function displayProducts (products){
     const productslist = document.querySelector(".products-list");
+    productslist.innerHTML = '';
+
+ // Add products to their respective category sections
      products.forEach(product => { 
         const productElement = document.createElement("div");
         productElement.className = "product col-2  bg-light rounded-1 ";
         productElement.innerHTML = `
-        <a data-filter="${product.category}">
-        <img class="border-bottom   img-fluid p-3 " src="${product.imageUrl}" alt="${product.name}">
-            <p class=" mt-4 fs-4"><span class="opacity-50 fs-6">$ </span>${product.originalPrice.toFixed(2)}<span class="opacity-50 fs-6">99</span></p>
-            <p class="original-price"> <span class="opacity-50 fs-6">$ ${product.price.toFixed(2)}</span> </p>
-          <p class=" opacity-75 fs-6 lh-3  mt-4 ">${product.name}</p>
-          <img src="images/basket.webp" alt="">
-          <img src="images/basket.webp" alt="">
-          <img src="images/basket.webp" alt="">
-         <img src="images/basket.webp" alt="">
-         <img src="images/basket.webp" alt="">
-         <span class="opacity-50">${product.reviews}</span>
-         <p class="pt-3">see more ...</p>
-        </a>`; 
+          <a data-filter="${product.category}">
+                    <img class="border-bottom img-fluid p-3" src="${product.imageUrl}" alt="${product.name}">
+                    <p class="mt-4 fs-4"><span class="opacity-50 fs-6">$ </span>${product.originalPrice.toFixed(2)}<span class="opacity-50 fs-6">99</span></p>
+                    <p class="original-price"><span class="opacity-50 fs-6">$ ${product.price.toFixed(2)}</span></p>
+                    <p class="opacity-75 fs-6 lh-3 mt-4 ">${product.name}</p>
+                    <img src="images/basket.webp" alt="">
+                    <img src="images/basket.webp" alt="">
+                    <img src="images/basket.webp" alt="">
+                    <img src="images/basket.webp" alt="">
+                    <img src="images/basket.webp" alt="">
+                    <span class="opacity-50">${product.reviews}</span>
+                    <p class="pt-3">see more ...</p>
+                </a>`;
+
+        //   categorySection.appendChild(productElement);
           productslist.appendChild(productElement);
      });
 };
-displayProducts(productsData);
+        // Display all products initially
+      displayProducts(products);
 // ************************************************* category *************************************  
-
 
 const categoryButton = document.querySelector(".category");
 const dropdownCategory = document.querySelector(".dropdown-category");
 
-
-
 categoryButton.addEventListener("click", function(e) {
     e.stopPropagation();
-    dropdownCategory.classList.add("show");
+    dropdownCategory.classList.toggle("show");
 });
     // filter
     const filters = document.querySelectorAll(".dropdown-category li");
     filters.forEach(function (filter) {
-        filter.addEventListener("click", function(){
-            // e.preventDefault();
+        filter.addEventListener("click", function(e){
+            e.preventDefault();
             const category = this.dataset.select.toLowerCase();
-            const filteredProducts = category === "All" ? products : products.filter(product => product.category === category);
+          const filteredProducts = category === "all" ? products : products.filter(product => product.category === category);  
             displayProducts(filteredProducts);
             dropdownCategory.classList.remove("show");
-            categoryButton.innerText = this.innerText;
+
+            // Update button text to selected category
+
+            categoryButton.innerHTML = `${this.innerText} <i class="fas fa-caret-down ps-1"></i>`; 
       });
 //     Closing the category 
-window.addEventListener("click", (event) => {
+ window.addEventListener("click", (event) => {
     if (!categoryButton.contains(event.target) && !dropdownCategory.contains(event.target)) {
         dropdownCategory.classList.remove("show");
     }
 });
-
-
-
-
-
-
 });
+
