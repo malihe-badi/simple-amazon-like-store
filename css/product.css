@@ -1,0 +1,23 @@
+body{
+    background-color: var(--bs-white);
+}
+.price{
+    text-decoration: line-through;
+}
+
+.border-bottom-info{
+    border-bottom: 1px solid var(--bs-info);
+}
+.list-style{
+ list-style: block;
+}
+.product-details {
+ width: 100%;
+
+}
+.img-product {
+  width: 100%;
+  height:auto;
+  background-size: cover;
+
+}
