@@ -3,6 +3,7 @@ const idParams = searchParams.get('id');
 const products = JSON.parse(localStorage.getItem("productsData"));
 const productDetails = document.querySelector(".product-details");
 
+// display Product Details
 function displayProductDetails(productId) {
     const product = products.find(p => p.id === parseInt(productId));
     if (product) {
@@ -58,35 +59,35 @@ function displayProductDetails(productId) {
                             <span class="col-6 ">Model Nam</span>
                             <span class="col-6 opacity-75">Laptop</span>
                     </div>
-                    <div class="d-flex py-1">
+                    <div class="d-flex py-2">
                             <span class="col-6">Screen Size</span>
                             <span class="col-6 opacity-75">15.6 Inches</span>
                    </div>
-                   <div class="d-flex py-1">
+                   <div class="d-flex py-2">
                            <span class="col-6 ">Color</span>
                            <span class="col-6 opacity-75">Silver</span>
                    </div>
-                   <div class="d-flex py-1">
+                   <div class="d-flex py-2">
                           <span class="col-6">Hard Disk Size</span>
                           <span class="col-6 opacity-75">128 GB</span>
                    </div>
-                   <div class="d-flex py-1">
-                         <span>CPU Model</span>
-                         <span class="opacity-75">Ryzen 3</span>
+                   <div class="d-flex py-2">
+                         <span class="col-6">CPU Model</span>
+                         <span class="col-6 opacity-75">Ryzen 3</span>
                     </div>
-                   <div class="d-flex ">
+                   <div class="d-flex py-2 ">
                          <span class="col-6">Ram Memory Installed Size</span>
-                         <span class="opacity-75">8 GB</span>
+                         <span class="col-6 opacity-75">8 GB</span>
                  </div>
-                 <div class="d-flex ">
+                 <div class="d-flex py-2">
                         <span class="col-6">Operating System</span>
-                        <span class="opacity-75">Windows 11 S</span>
+                        <span class="col-6 opacity-75">Windows 11 S</span>
                  </div>
-                 <div class="d-flex py-1">
+                 <div class="d-flex py-2">
                        <span class="col-6">Special Feature</span>
-                       <span class="opacity-75">Backlit Keyboard</span>
+                       <span class="col-6 opacity-75">Backlit Keyboard</span>
                  </div>
-                 <div class="d-flex py-1">
+                 <div class="d-flex py-2">
                        <span class="col-6">Graphics Card Description</span>
                         <span class="opacity-75">Integrated</span>
                 </div>
@@ -152,7 +153,7 @@ function displayProductDetails(productId) {
                   <p class="text-success fs-5 pt-3"> In Stock </p>
                   <label for="quantity">
                   <div class=" d-flex flex-column justify-content-center">
-                <select name="" id="quantity" class="btn rounded-4 text-dark rounded-pill bg-light mb-3">
+                <select name="" id="quantity" class="p-1 rounded-pill bg-light mb-3">
                     <option value="1">Quantity: 1</option>
                     <option value="2">Quantity: 2</option>
                     <option value="3">Quantity: 3</option>
@@ -174,8 +175,8 @@ function displayProductDetails(productId) {
                     <option value="19">Quantity: 19</option>
                 </select>
              </label>
-             <button class="btn rounded-4 bg-warning"> Add to cart</button>
-          </div>
+                   <button class="add-cart btn rounded-pill bg-warning "> Add to cart</button>
+              </div>
                   <div class="d-flex pt-3">
                        <span class="col-6">Ships from </span>
                        <span class="col-6">Amazon.com </span>
@@ -206,3 +207,9 @@ function displayProductDetails(productId) {
 }
 
 displayProductDetails(idParams);
+
+//************************/ add to cart ********************
+const addToCart = document.querySelector(".add-cart");
+addToCart.addEventListener("click" , function(){
+    window.location.href = `./cart.html?id=${product.id}`;
+})

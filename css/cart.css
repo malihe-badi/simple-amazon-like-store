@@ -1,0 +1,10 @@
+main{
+    height:100vh ;
+}
+.page-cart{
+    width:100%;
+    margin-top:40px;
+    padding:25px;
+    border-radius:6px;
+    box-shadow: 0px 10px 10px var(--bs-gray);
+}
