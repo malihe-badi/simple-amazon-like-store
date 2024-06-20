@@ -8,8 +8,8 @@ body{
 .border-bottom-info{
     border-bottom: 1px solid var(--bs-info);
 }
-.list-style{
- list-style: block;
+.list-style ul li{
+list-style-type: disc;
 }
 .product-details {
  width: 100%;
@@ -21,3 +21,26 @@ body{
   background-size: cover;
 
 }
+.border-orange{
+    border:1px solid var(--bs-orange);
+}
+.button-product{
+    color: var(--bs-white);
+    width:130px;
+    height: auto;
+}
+.buy{
+    width: 300px;
+    height: auto;
+}
+.buy-new{
+    width: 100%;
+    padding: 25px 15px;
+    border: 1px solid var(--bs-info);
+    border-radius: 8px;
+}
+
+.buy-new .img-circle{
+    margin-left:130px;
+}
+

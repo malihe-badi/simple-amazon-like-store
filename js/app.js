@@ -119,12 +119,12 @@ function displayProducts (products){
  // Add products to their respective category sections
      products.forEach(product => { 
         const productElement = document.createElement("div");
-        productElement.className = "product col-2  bg-light rounded-1 ";
+        productElement.className = "product col-2  bg-white rounded-1 ";
         productElement.innerHTML = `
           <div  data-filter="${product.category}">
-                    <img class="border-bottom img-fluid p-3" src="${product.imageUrl}" alt="${product.name}">
+                    <img class="product-img  img-fluid p-3" src="${product.imageUrl}" alt="${product.name}">
                     <p class="mt-4 fs-4"><span class="opacity-50 fs-6">$ </span>${product.originalPrice.toFixed(2)}<span class="opacity-50 fs-6">99</span></p>
-                    <p class="original-price"><span class="opacity-50 fs-6">$ ${product.price.toFixed(2)}</span></p>
+                    <p class="original-price"><span class="opacity-50 fs-7 lh-3">$ ${product.price.toFixed(2)}</span></p>
                     <p class="opacity-75 fs-6 lh-3 mt-4 ">${product.name}</p>
                     <img src="images/basket.webp" alt="">
                     <img src="images/basket.webp" alt="">
@@ -132,7 +132,9 @@ function displayProducts (products){
                     <img src="images/basket.webp" alt="">
                     <img src="images/basket.webp" alt="">
                     <span class="opacity-50">${product.reviews}</span>
-                    <a href="./product.js?id=${product.id}" class="pt-3 text-dark">see more ...</a>
+                      <div class="py-3">
+                        <a href="./products.html?id=${product.id}" class="pt-3  text-dark">see more ...</a>
+                      </div>
                 </div>`;
                     productElement.addEventListener("click",function(){
                     window.location.href = `./products.html?id=${product.id}`;
@@ -178,7 +180,7 @@ const searchButton = document.querySelector("form .search");
 searchForm.addEventListener("submit", function(e){
     e.preventDefault();
     const searchText = inputSearch.value.trim().toLowerCase();
-    if(searchText.length >= 3){
+    if(searchText.length >= 2){
         const filteredProducts = productsData.filter(product =>
             product.name.toLowerCase().includes(searchText)
         );

@@ -16,7 +16,7 @@
   --bs-purple-1: #972beb;
   --bs-pink: #d63384;
   --bs-red: #dc3545;
-  --bs-orange: #fd7e14;
+  --bs-orange: #efb14d;
   --bs-yellow: #ffc107;
   --bs-green: #198754;
   --bs-teal: #20c997; 
@@ -38,7 +38,7 @@
   --bs-secondary: #87c3f8;
   --bs-success: #198754;
   --bs-info: #bbd2da;
-  --bs-warning: #ffc107;
+  --bs-warning: #fdd660;
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
@@ -106,9 +106,7 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   
 }
-.bg-orange{
-  background-color:var(--bs-orange);
-}
+
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -7578,6 +7576,12 @@ textarea.form-control-lg {
 
 .m-auto {
   margin: auto !important;
+}
+.m-6{
+  margin: 6rem !important
+}
+.mr-1{
+  margin-right: 9rem !important;
 }
 
 .mx-0 {
