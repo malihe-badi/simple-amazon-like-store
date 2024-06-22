@@ -1,3 +1,22 @@
+
+//*********************************************** button language ************************************************
+document.addEventListener("DOMContentLoaded", function () {
+    const buttonLanguage = document.querySelector(".language");
+    const openBoxLanguage = document.querySelector(".language-box");
+
+    buttonLanguage.addEventListener("click", function (e) {
+        e.stopPropagation();
+        openBoxLanguage.classList.toggle("show");
+    });
+
+    window.addEventListener("click", function (e) {
+        if (!openBoxLanguage.contains(e.target) && e.target !== buttonLanguage) {
+            openBoxLanguage.classList.remove('show');
+        }
+    });
+});
+
+
 //*********************************************** slider ************************************************
 const slid = document.querySelector(".slider");
 const rightChevron = document.querySelector(".chevron .right-chevron");
@@ -11,7 +30,7 @@ const sliderImages = [
 let currentSlide = 0 ;
 
 function updateBackground(){
-    slid.style.background=`url(${sliderImages[currentSlide]})no-repeat right top`;
+    slid.style.background=`url(${sliderImages[currentSlide]})no-repeat center top `;
 };
 function changhSlide(step){
     currentSlide += step;
@@ -119,21 +138,21 @@ function displayProducts (products){
  // Add products to their respective category sections
      products.forEach(product => { 
         const productElement = document.createElement("div");
-        productElement.className = "product col-2  bg-white rounded-1 ";
+        productElement.className = "product col-md-2 bg-white rounded-1 g-";
         productElement.innerHTML = `
           <div  data-filter="${product.category}">
-                    <img class="product-img  img-fluid p-3" src="${product.imageUrl}" alt="${product.name}">
-                    <p class="mt-4 fs-4"><span class="opacity-50 fs-6">$ </span>${product.originalPrice.toFixed(2)}<span class="opacity-50 fs-6">99</span></p>
+                    <img class="product-img  img-fluid p-md-3" src="${product.imageUrl}" alt="${product.name}">
+                    <p class="mt-md-4 fs-4"><span class="opacity-50 fs-6">$ </span>${product.originalPrice.toFixed(2)}<span class="opacity-50 fs-6">99</span></p>
                     <p class="original-price"><span class="opacity-50 fs-7 lh-3">$ ${product.price.toFixed(2)}</span></p>
-                    <p class="opacity-75 fs-6 lh-3 mt-4 ">${product.name}</p>
+                    <p class="opacity-75 fs-6 lh-3 mt-md-4 ">${product.name}</p>
                     <img src="images/basket.webp" alt="">
                     <img src="images/basket.webp" alt="">
                     <img src="images/basket.webp" alt="">
                     <img src="images/basket.webp" alt="">
                     <img src="images/basket.webp" alt="">
                     <span class="opacity-50">${product.reviews}</span>
-                      <div class="py-3">
-                        <a href="./products.html?id=${product.id}" class="pt-3  text-dark">see more ...</a>
+                      <div class="py-md-3">
+                        <a href="./products.html?id=${product.id}" class="pt-md-3  text-dark">see more ...</a>
                       </div>
                 </div>`;
                     productElement.addEventListener("click",function(){
@@ -221,6 +240,23 @@ backButton.addEventListener('click', (e) => {
     e.preventDefault();
     mainMenu.classList.remove('show');
 });
+
+// ******************************** Local storage cart ***************************
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cartCountElement = document.querySelector(".basket-number");
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function updateCartCount(count) {
+        cartCountElement.textContent = count;
+    }
+
+    updateCartCount(cart.length);
+});
+
+
+
+
 
 
 

@@ -52,8 +52,10 @@
                  </div>
              </div>
               <div class="col-1">
-              <div><span class="basket-number ms-3 text-danger fw-bold">0</span></div> 
-              <div> <i class="fas  fa-shopping-cart fs-2"></i><span class="fw-bold">Cart</span></div>
+                <a href="cart.html" class="view-cart text-light">
+                  <div><span id="cart-count" class="basket-number ms-3 text-danger fw-bold">0</span></div> 
+                  <div> <i class="fas  fa-shopping-cart fs-2"></i><span class="fw-bold">Cart</span></div>
+                </a>
           </div>
         </nav>
           <!--------------------------------- menu ----------------------------->
@@ -117,13 +119,14 @@
           </div>
         </header>
         <main  class=" w-100 container-fluid">
-            <div class="page-cart  bg-white">
-              <h2 class="fw-bold pb-2">
-                Your Amazon Basket is empty.
-              </h2>
-              <p>Check products page for shopping <a href="index.html" class="text-decoration-none">
-                continue shopping.</a></p>
-            </div>
+          
+
+            <div class="cart-container">
+             
+              <div class="cart-items">
+                  <!-- سبد خرید در اینجا نمایش داده خواهد شد -->
+              </div>
+  
 
         </main>
         <footer class="mt-5">
@@ -187,6 +190,9 @@
              </div>
         
           </footer>
+   <script src="cart.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/products.js"></script>
+   
 </body>
 </html>

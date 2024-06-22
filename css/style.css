@@ -21,7 +21,44 @@ ul, li{
   background-color:var(--bg-header);
   position: relative;
 }
+/******************** language **************/
+.language-box {
+    position: fixed;
+    top:8%;
+    left:60%;
+    width:380px;
+    background-color: var(--bs-white);
+    color: var(--bg-header);
+    z-index: 1000;
+    padding: 20px;
+    opacity: 0;
+    overflow-y: auto;
+    max-height: 90vh;
+}
 
+.language-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.language-list li {
+    margin-bottom: 10px;
+}
+
+.language-list li label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.language-list li label:hover {
+    background-color: #f0f0f0;
+}
+
+.language-box.show {
+    opacity: 1;
+    transform: translateX(0%);
+}
 /*************************************************form**************************************/
 .input-group , .menu .btn:hover{
     color:var(--bg-header);
@@ -69,13 +106,13 @@ ul, li{
     left: 0;
      opacity: 0;
      width: 380px;
-    transform: translateX(-100%);
-    transition:opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    z-index: 1000;
+     transform: translateX(100%);
+     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+     z-index: 1000;
 }
 .dropdown-menu.show {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0%);
 }
 .title-menu  {
     width:100%;
@@ -131,6 +168,7 @@ ul, li{
     height: 450px;
     box-shadow:100px 100px 100px var(--bs-info);
     background-size: cover;
+    
 
 }
 .chevron {
@@ -198,3 +236,5 @@ ul, li{
     border-radius: 5px; 
     
 }
+
+

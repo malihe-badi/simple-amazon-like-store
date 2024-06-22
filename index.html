@@ -11,18 +11,18 @@
 </head>
 <body>
   <header id="header container-fluid">
-  <nav class="nav text-light row d-flex justify-content-center pt-3">
+  <nav class="nav text-light row d-flex justify-content-lg-center pt-3">
     <div class="col-2 d-flex ">
         <div class="col-6">
             <a href="#"><img class="img-fluid " src="images/logo.webp" alt="logo"></a>
         </div>
-        <div class="location col-6 p-0">
-          <img class="mt-2 fs-6" src="images/locationIcon.png" alt="locationIcon"><span class="fs-6 opacity-50 mb-0" >Deliver to</span>
-          <p class="fw-bold text-center m-0 ">Iran</p>
+        <div class="location col-5 p-0">
+          <img class="mt-2 fs-6" src="images/locationIcon.png" alt="locationIcon"><span class="fs-8 opacity-50 mb-0" >Deliver to</span>
+          <p class="fw-bold text-center m-0 fs-8">Iran</p>
         </div>
     </div>
-   <div class="col-6 p-0">
-    <form class="input-group w-100 " id="form">
+   <div class="col-6 p-0 ">
+    <form class="input-group  " id="form">
         <button  type="button" class="category bg-light btn ">All<i class="fas fa-caret-down ps-1"></i> 
         </button>
              <ul class="dropdown-category bg-light rounded-2 text-dark p-0 ">
@@ -35,34 +35,90 @@
         <button class="search btn bg-orange "><i class="fas fa-search  fs-5 ps-1"></i></button> 
     </form>
    </div>
-       <div class="sign-in col-3 row d-flex justify-content-center ">
-          <div class="language col-4 ">
+       <div class="sign-in col-3 row d-md-flex d-none d-md-block p-0 m-0">
+          <div class="col-md-4 ">
+            <button class="language btn  menu-btn text-light p-md-1" type="button" >
             <img src="images/Flag.webp" alt="Flag">
-            <span class="fw-normal text-s ">EN</span>
+            <span class="fw-normal fs-7  ">EN</span>
             <i class="fas fa-caret-down opacity-50"></i>
-          </div>
-           <div class="returns p-0 col-4">
-               <span class="fw-normal ">Hello,sign in</span>
-                <p class="fw-bold">Account & Lists<i class="fas fa-caret-down ps-1 opacity-50"></i></p>
+            </button>
+                      <div class="language-box">
+                        <ul class="language-list">
+                           <h3>Choose a Language</h3>
+                             <li>
+                                <label>
+                                   <input type="radio" name="language" value="EN"> English
+                                 </label>
+                            </li>
+                             <li>
+                               <label>
+                                 <input type="radio" name="language" value="ES"> Español
+                               </label>
+                              </li>
+                             <li>
+                               <label>
+                                 <input type="radio" name="language" value="AR"> العربية
+                              </label>
+                            </li>
+                            <li>
+                               <label>
+                                  <input type="radio" name="language" value=" DE"> Deutsch
+                              </label>
+                            </li>
+                            <li>
+                                <label>
+                                   <input type="radio" name="language" value=" PT"> עברית 
+                               </label>
+                           </li>
+                            <li>
+                              <label>
+                                 <input type="radio" name="language" value=" ZH"> 中文 (简体)
+                             </label>
+                           </li>
+                         </ul>
+                       <h5 class="border-top py-2">
+                           Change language <a href="" class="text-success">Learn more</a>
+                        </h5>
+                            <p> $ - USD - US Dollar <span><a href="" class="text-success">Change</a></span></p>
+                            <span><img class="img-fluid p-1" src="images/globe.webp" alt="globe">you are shopping on
+                              Amazon.com</span>  
+                          <p> <a href="" class="" class="text-success">Change country/region.</a></p>     
+          
+                      </div>
+           
            </div>
-           <div class="returnsp-0 col-4">
-           <span class="fw-normal">Returns</span>
-           <p class="fw-bold">& Orders</p>
+           <div class=" col-md-4 p-0">
+             <button class="returns btn menu-btn text-light p-md-1">
+              <span class="fw-normal fs-7">Hello,sign in</span>
+              <p class="fw-bold fs-7">Account & Lists<i class="fas fa-caret-down  opacity-50"></i></p>
+             </button>
+           </div>
+           <div class=" col-md-4 p-0">
+            <button class="returnsp btn menu-btn text-light p-md-1">
+              <span class="fw-normal fs-7">Returns</span>
+              <p class="fw-bold fs-7 ">& Orders</p>
+            </button>
+       
     
            </div>
        </div>
-        <div class="col-1">
-        <div><span class="basket-number ms-3 text-danger fw-bold">0</span></div> 
-        <div> <i class="fas  fa-shopping-cart fs-2"></i><span class="fw-bold">Cart</span></div>
+        <div class="col-1 ">
+          <a href="cart.html" class="view-cart text-light">
+            <div><span id="cart-count" class="basket-number ms-3 text-danger fw-bold">0</span></div> 
+            <div> <i class="fas  fa-shopping-cart fs-2"></i><span class="fw-bold">Cart</span></div>
+          </a>
     </div>
   </nav>
+
+
+
     <!--------------------------------- menu ----------------------------->
-   <div class="menu  d-flex">
-        <button type="button" class="btn  menu-btn text-light fs-5">
-        <i class="fas fa-bars pe-2"></i> All
+   <div class="menu  d-md-flex">
+        <button type="button" class="btn  menu-btn text-light fs-6">
+        <i class="fas fa-bars pe-md-2"></i> All
         </button>
         <div class="dropdown-menu p-0">
-            <div class="bg-dark d-flex ">
+            <div class="bg-dark d-md-flex ">
                 <i class="fas fa-user-circle fs-1  text-light py-2 ps-3 "></i>
                 <p class="fw-bold text-light py-3 ps-4 fs-5">Hello, sign in</p>
             </div> 
@@ -109,16 +165,16 @@
                   </ul>
             </div>
         </div>
-              <button class="btn  text-light"> Today's Deals</button>
-              <button class="btn  text-light">Customer Service</button>
-              <button class="btn  text-light">Registry</button>
-              <button class="btn  text-light">Gift Cards</button>
-              <button class="btn  text-light">Sell</button>
+              <button class="btn fs-8  text-light"> Today's Deals</button>
+              <button class="btn fs-8   text-light">Customer Service</button>
+              <button class="btn fs-8   text-light">Registry</button>
+              <button class="btn fs-8   text-light">Gift Cards</button>
+              <button class="btn fs-8   text-light">Sell</button>
     </div>
   </header> 
    <main class="main bg-gradient ">
     <!--------------------------------------- slider -------------------------------->
-         <div class="slider mb-3">
+         <div class="slider ms-md-3 w-100">
             <div class="chevron">
                 <button class="left-chevron clicked">
                     <i class="fas  fa-chevron-left  text-dark"></i>
@@ -129,24 +185,26 @@
              </div>
              <div class="container-fluid ">
              <div class="w-100 text-center bg-light  "> 
-                  <p class="p-2" >You are on amazon.com. You can also shop on Amazon Germany for millions of products with fast local delivery. Click here to go to <a class="text-success " href="#">amazon.de</a></p>
+                  <p class="p-md-2 fs-7 p-sm-2" >You are on amazon.com. You can also shop on Amazon Germany for millions of products with fast local delivery. Click here to go to <a class="text-success " href="#">amazon.de</a></p>
              </div>    
          </div>
         </div>
         <!------------------------- Products ------------------------------>
-        <div class="products-list container-fluid d-flex row gap-3">
+        <div class="products-list w-100 container-fluid d-md-flex row gap-2 fs mt-2">
 
     </div>
               
   </main>
 
-  <footer class="mt-5">
+
+
+  <footer class="mt-md-5">
     <div class="back-to-top  w-100 p-3  d-flex  justify-content-center">
         <a class="text-center 
      text-light" href="#">Back to top</a>
      </div>
      <div class="footer container-fluid">
-        <div class="container d-flex justify-content-around">
+        <div class="container d-flex justify-content-md-around">
             <ul>
                 <h3 class="mt-5 pb-3 fs-6 text-light" >Get to Know Us</h3>
                 <li class="my-1  opacity-50 text-light"><a class="mb-3 text-light" href="#">Careers</a></li>
@@ -203,5 +261,7 @@
   </footer> 
 
     <script src="./js/app.js"></script>
+    <script src="./js/products.js"></script>
+    <script src="./js/cart.js"></script>
 </body>
 </html>
