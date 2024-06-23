@@ -8,21 +8,22 @@
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
   <header id="header container-fluid">
-  <nav class="nav text-light row d-flex justify-content-lg-center pt-3">
+  <nav class="nav text-light row d-flex justify-content-lg-center pt-md-2">
     <div class="col-2 d-flex ">
-        <div class="col-6">
-            <a href="#"><img class="img-fluid " src="images/logo.webp" alt="logo"></a>
+        <div class="col-md-5 pt-md-3">
+            <a href="index.html"><img class="img-fluid " src="images/logo.webp" alt="logo"></a>
         </div>
-        <div class="location col-5 p-0">
-          <img class="mt-2 fs-6" src="images/locationIcon.png" alt="locationIcon"><span class="fs-8 opacity-50 mb-0" >Deliver to</span>
+        <div class="location col-md-6 p-0 fs-8">
+          <img class="mt-2 fs-8" src="images/locationIcon.png" alt="locationIcon"><span class="fs-8 opacity-50 mb-0" >Deliver to</span>
           <p class="fw-bold text-center m-0 fs-8">Iran</p>
         </div>
     </div>
-   <div class="col-6 p-0 ">
-    <form class="input-group  " id="form">
+   <div class="col-md-7 p-md-1 ">
+    <form class="input-group pt-md-2 " id="form">
         <button  type="button" class="category bg-light btn ">All<i class="fas fa-caret-down ps-1"></i> 
         </button>
              <ul class="dropdown-category bg-light rounded-2 text-dark p-0 ">
@@ -35,74 +36,100 @@
         <button class="search btn bg-orange "><i class="fas fa-search  fs-5 ps-1"></i></button> 
     </form>
    </div>
-       <div class="sign-in col-3 row d-md-flex d-none d-md-block p-0 m-0">
+       <div class="sign-in col-2 row d-md-flex d-none d-md-block p-0 m-0">
           <div class="col-md-4 ">
             <button class="language btn  menu-btn text-light p-md-1" type="button" >
             <img src="images/Flag.webp" alt="Flag">
-            <span class="fw-normal fs-7  ">EN</span>
+            <span class="fw-normal fs-7">EN</span>
             <i class="fas fa-caret-down opacity-50"></i>
             </button>
                       <div class="language-box">
                         <ul class="language-list">
-                           <h3>Choose a Language</h3>
-                             <li>
+                           <h4>Choose a Language</h4>
+                             <li class="py-md-2">
                                 <label>
                                    <input type="radio" name="language" value="EN"> English
                                  </label>
                             </li>
-                             <li>
+                             <li  class="py-md-2">
                                <label>
                                  <input type="radio" name="language" value="ES"> Español
                                </label>
                               </li>
-                             <li>
+                             <li class="py-md-2">
                                <label>
                                  <input type="radio" name="language" value="AR"> العربية
                               </label>
                             </li>
-                            <li>
+                            <li class="py-md-2">
                                <label>
                                   <input type="radio" name="language" value=" DE"> Deutsch
                               </label>
                             </li>
-                            <li>
+                            <li class="py-md-2">
                                 <label>
                                    <input type="radio" name="language" value=" PT"> עברית 
                                </label>
                            </li>
-                            <li>
+                            <li class="py-md-2">
                               <label>
                                  <input type="radio" name="language" value=" ZH"> 中文 (简体)
                              </label>
                            </li>
                          </ul>
-                       <h5 class="border-top py-2">
+                       <p class="border-top py-2">
                            Change language <a href="" class="text-success">Learn more</a>
-                        </h5>
+                        </p>
                             <p> $ - USD - US Dollar <span><a href="" class="text-success">Change</a></span></p>
                             <span><img class="img-fluid p-1" src="images/globe.webp" alt="globe">you are shopping on
                               Amazon.com</span>  
-                          <p> <a href="" class="" class="text-success">Change country/region.</a></p>     
-          
+                          <p> <a href="" class="" class="text-center">Change country/region.</a></p>     
                       </div>
-           
            </div>
-           <div class=" col-md-4 p-0">
-             <button class="returns btn menu-btn text-light p-md-1">
-              <span class="fw-normal fs-7">Hello,sign in</span>
-              <p class="fw-bold fs-7">Account & Lists<i class="fas fa-caret-down  opacity-50"></i></p>
+           <div class=" col-md-5 p-0 m-0">
+             <button class="account btn menu-btn text-light p-md-1">
+              <span class="fw-normal fs-7 ">Hello,sign in</span>
+              <p class="fw-bold fs-7">Account & Lists <i class="fas fa-caret-down  opacity-50"></i></p>
              </button>
+              <div class="bg-white account-box border-bottom-info">
+                <button class="btn rounded-pill bg-warning px-5 w-75 text-center"> Sing in </button>
+                <p class="p-md-2 text-center fs-7">New customer? <a class="text-success" href="">Start here</a></p>
+                <div class="d-flex row gap-1">
+                  <div class="col-md-5 border-end">
+                    <h5 class="text-dark fw-bold ">Your Lists</h5>
+                    <ul class="account-list">
+                      <li class="py-md-1 fs-7"><a class="text-secondary" href="#">Create a List</a></li>
+                      <li class="py-md-1 fs-8"><a class="text-secondary" href="#">Find a List or Registry</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-5 ">
+                    <h5 class="text-dark fw-bold">Your Account</h5>
+                    <ul class="account-list">
+                      <li class="py-md-1 fs-7"><a class="text-secondary" href="#">Account</a></li>
+                      <li class="py-md-1 fs-7"><a class="text-secondary" href="#">orders</a></li>
+                      <li class="py-md-1 fs-7"><a class="text-secondary" href="#">Recommendations</a></li>
+                      <li><a class="text-secondary" href="#">Browsing</a></li>
+                      <li class="py-md-1 fs-7"><a class="text-secondary" href="#">History</a></li>
+                      <li class="py-md-1 fs-7"><a class="text-secondary" href="#">Watchlist</a></li>
+                      <li class="py-md-1 fs-7"><a class="text-secondary" href="#">Purchases & Rentals</a></li>
+                      <li class="py-md-1 fs-7"><a class="text-secondary" href="#">Kindle Unlimited</a></li>
+                      <li class="py-md-1 fs-7"><a class="text-secondary" href="#">Subscribe & Save Items</a></li>
+                      <li class="py-md-1 fs-7"><a class="text-secondary" href="#">Music Library</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
            </div>
-           <div class=" col-md-4 p-0">
-            <button class="returnsp btn menu-btn text-light p-md-1">
-              <span class="fw-normal fs-7">Returns</span>
-              <p class="fw-bold fs-7 ">& Orders</p>
+           <div class=" col-md-3 p-0 m-0">
+            <button class="returnsp btn menu-btn text-light p-md-1 m-0">
+              <span class="fw-normal fs-8">Returns</span>
+              <p class="fw-bold fs-7 m-0">& Orders</p>
             </button>
        
     
            </div>
        </div>
-        <div class="col-1 ">
+        <div class="col-1 m-0">
           <a href="cart.html" class="view-cart text-light">
             <div><span id="cart-count" class="basket-number ms-3 text-danger fw-bold">0</span></div> 
             <div> <i class="fas  fa-shopping-cart fs-2"></i><span class="fw-bold">Cart</span></div>
@@ -125,7 +152,7 @@
               <div class="title-menu">
                 <h2 class="fs-5 p-2">Digital Content & Devices</h2>
                       <ul>
-                        <li class="p-1"><a href="" class="amazon-music text-secondary">Amazon Music<i class="fas fa-angle-right  text-secondary"></i></a> </li>
+                        <li class="p-1 main-menu"><a href="" class="amazon-music text-secondary">Amazon Music<i class="fas fa-angle-right  text-secondary"></i></a> </li>
                               <div class="main-menu">
                                 <p class="py-1"><a href="#"class=" text-secondary"><i class="fas fa-arrow-left "></i>Main Menu</a></p>
                                   <h3>Stream Music</h3>
@@ -172,9 +199,9 @@
               <button class="btn fs-8   text-light">Sell</button>
     </div>
   </header> 
+   <!--------------------------------------- slider -------------------------------->
    <main class="main bg-gradient ">
-    <!--------------------------------------- slider -------------------------------->
-         <div class="slider ms-md-3 w-100">
+         <div class="slider ms-md-3 ">
             <div class="chevron">
                 <button class="left-chevron clicked">
                     <i class="fas  fa-chevron-left  text-dark"></i>
@@ -183,20 +210,16 @@
                     <i class="fas   fa-chevron-right  text-dark"></i>
                  </button>
              </div>
-             <div class="container-fluid ">
-             <div class="w-100 text-center bg-light  "> 
-                  <p class="p-md-2 fs-7 p-sm-2" >You are on amazon.com. You can also shop on Amazon Germany for millions of products with fast local delivery. Click here to go to <a class="text-success " href="#">amazon.de</a></p>
-             </div>    
+             <div class="title-header text-center bg-light  rounded-2 container-fluid"> 
+                  <p class="p-md-2 fs-7 p-sm-2" >You are on amazon.com. You can also shop on Amazon Germany for millions of products with fast local delivery. Click here to go to <a class="text-success " href="#">amazon.de</a></p> 
          </div>
         </div>
         <!------------------------- Products ------------------------------>
-        <div class="products-list w-100 container-fluid d-md-flex row gap-2 fs mt-2">
+        <div class="products-list w-100 container-fluid d-md-flex row gap-3 fs mt-2">
 
     </div>
               
   </main>
-
-
 
   <footer class="mt-md-5">
     <div class="back-to-top  w-100 p-3  d-flex  justify-content-center">
@@ -258,8 +281,9 @@
         </div>
      </div>
 
-  </footer> 
-
+  </footer>
+    <script src="./js/header.js"></script>
+    <script src="./js/slider.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/products.js"></script>
     <script src="./js/cart.js"></script>

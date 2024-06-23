@@ -213,6 +213,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function toggleCart(productId) {
+        cart = ["1","", ""]
         const index = cart.indexOf(productId);
         if (index === -1) {
             cart.push(productId);

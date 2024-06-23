@@ -1,67 +1,4 @@
 
-//*********************************************** button language ************************************************
-document.addEventListener("DOMContentLoaded", function () {
-    const buttonLanguage = document.querySelector(".language");
-    const openBoxLanguage = document.querySelector(".language-box");
-
-    buttonLanguage.addEventListener("click", function (e) {
-        e.stopPropagation();
-        openBoxLanguage.classList.toggle("show");
-    });
-
-    window.addEventListener("click", function (e) {
-        if (!openBoxLanguage.contains(e.target) && e.target !== buttonLanguage) {
-            openBoxLanguage.classList.remove('show');
-        }
-    });
-});
-
-
-//*********************************************** slider ************************************************
-const slid = document.querySelector(".slider");
-const rightChevron = document.querySelector(".chevron .right-chevron");
-const leftChevron = document.querySelector(".chevron .left-chevron");
-const sliderImages = [
-    './images/slide1.webp',
-    './images/slide2.webp',
-    './images/slide3.webp',
-    './images/slide4.webp',
-];
-let currentSlide = 0 ;
-
-function updateBackground(){
-    slid.style.background=`url(${sliderImages[currentSlide]})no-repeat center top `;
-};
-function changhSlide(step){
-    currentSlide += step;
-    if(currentSlide >= sliderImages.length){
-        currentSlide = 0;
-    }else if(currentSlide < 0){
-        currentSlide = sliderImages.length - 1;
-    }
-    updateBackground();
-}
-updateBackground();
-setInterval(()=> changhSlide(1),3000);
-
-rightChevron.addEventListener('click', function(){
-    rightChevron.style.border = '3px solid var(--bs-green)';
-    changhSlide(1);
-    setTimeout (() => {
-        rightChevron.style.border = 'none';
-     },1000);
-});
- leftChevron.addEventListener('click', function(){
-    leftChevron.style.border = '3px solid var(--bs-green)';
-    changhSlide(-1);
-    setTimeout (() => {
-        leftChevron.style.border = 'none';
-     },1000);
-
-
-    updateBackground();
-});
-
 // ************************************************* product data ************************************* 
 const productsData = [
     {
@@ -132,7 +69,7 @@ const productsData = [
 localStorage.setItem("productsData" ,JSON.stringify(productsData));
 const products = JSON.parse(localStorage.getItem("productsData"));
 const productslist = document.querySelector(".products-list");
-// Clear previous products
+
 function displayProducts (products){
     productslist.innerHTML = '';
  // Add products to their respective category sections
@@ -164,82 +101,6 @@ function displayProducts (products){
 };
         // Display all products initially
         displayProducts(products);
-// ************************************************* category *************************************  
-const categoryButton = document.querySelector(".category");
-const dropdownCategory = document.querySelector(".dropdown-category");
-
-categoryButton.addEventListener("click", function(e) {
-    e.stopPropagation();
-    dropdownCategory.classList.toggle("show");
-});
-    // filter
-    const filters = document.querySelectorAll(".dropdown-category li");
-    filters.forEach(function (filter) {
-        filter.addEventListener("click", function(e){
-            e.preventDefault();
-            const category = this.dataset.select.toLowerCase();
-          const filteredProducts = category === "all" ? products : products.filter(product => product.category === category);  
-            displayProducts(filteredProducts);
-            dropdownCategory.classList.remove("show");
-            // Update button text to selected category
-            categoryButton.innerHTML = `${this.innerText} <i class="fas fa-caret-down ps-1"></i>`; 
-      });
-//     Closing the category 
- window.addEventListener("click", (event) => {
-    if (!categoryButton.contains(event.target) && !dropdownCategory.contains(event.target)) {
-        dropdownCategory.classList.remove("show");
-    }
-});
-});
-// ***************************************search********************************
-const searchForm = document.querySelector("#form");
-const inputSearch = document.querySelector("form input");
-const searchButton = document.querySelector("form .search");
-
-searchForm.addEventListener("submit", function(e){
-    e.preventDefault();
-    const searchText = inputSearch.value.trim().toLowerCase();
-    if(searchText.length >= 2){
-        const filteredProducts = productsData.filter(product =>
-            product.name.toLowerCase().includes(searchText)
-        );
-        displayProducts(filteredProducts); 
-    }else{
-        displayProducts(productsData);
-    }
-});
-// ******************************** dropdown menu ***************************
-const menu = document.querySelector('.menu .menu-btn');
-const dropdownMenu = document.querySelector('.dropdown-menu');
-const mainMenu = document.querySelector('.main-menu');
-
-// The drop-down menu will open
-menu.addEventListener("click" , function(e){
-    e.stopPropagation();
-    dropdownMenu.classList.toggle("show");
-    mainMenu.classList.remove('show');
-});
-//  Closing the dropdown menu
-window.addEventListener("click", () => {
-    dropdownMenu.classList.remove('show');
-    mainMenu.classList.remove('show');
-});
-
-
-const amazonMusicLink = document.querySelector('.amazon-music ');
-const backButton = document.querySelector('.title-main-menu a');
-
-
-amazonMusicLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    mainMenu.classList.add('show');
-    mainMenu.style.left = `${dropdownMenu.offsetWidth}px`;
-});
-
-backButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    mainMenu.classList.remove('show');
-});
 
 // ******************************** Local storage cart ***************************
 
