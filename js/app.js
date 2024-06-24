@@ -104,16 +104,16 @@ function displayProducts (products){
 
 // ******************************** Local storage cart ***************************
 
-document.addEventListener("DOMContentLoaded", function() {
-    const cartCountElement = document.querySelector(".basket-number");
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// document.addEventListener("DOMContentLoaded", function() {
+//     const cartCountElement = document.querySelector(".basket-number");
+//     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    function updateCartCount(count) {
-        cartCountElement.textContent = count;
-    }
+//     function updateCartCount(count) {
+//         cartCountElement.textContent = count;
+//     }
 
-    updateCartCount(cart.length);
-});
+//     updateCartCount(cart.length);
+// });
 
 
 

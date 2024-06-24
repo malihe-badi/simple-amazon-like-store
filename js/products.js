@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function displayProductDetails(productId) {
         const product = products.find(p => p.id === parseInt(productId));
         if (product) {
-            productDetails.innerHTML = `
+            productDetails.innerHTML =`
                 <div class="col-4 img-fluid">
                     <img class="img-product" src="${product.imageUrl}" alt="${product.name}">
                 </div>
@@ -102,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         </ul>
                         <ul>
                             <li class="p-1">Ports For All Your Accessories: 1 - USB Type-C Port USB 3.2 Gen 2 (up to 10 Gbps) DisplayPort over USB Type-C & USB Charging, 2 - USB 3.2 Gen 1 Ports, 1 - HDMI 2.1 Port with HDCP support, 1 - Headphone/Speaker/Line-Out Jack, DC-in for AC adapter</li>
+
                             <li class="p-3">What's In the Box: Acer Aspire Laptop, AC Adapter, Power Cord</li>
                             <li class="p-1">Keyboard backlight not present on this model</li>
                         </ul>
@@ -178,8 +179,9 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
                 </div>
             `;
-        } else {
-            productDetails.innerHTML = `<p class="text-center">Product not found.</p>`;
+        }
+         else {
+            productDetails.innerHTML =`<p class="text-center">Product not found.</p>`;
         }
     }
 

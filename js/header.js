@@ -80,37 +80,61 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // ******************************** dropdown menu ***************************
-const menu = document.querySelector('.menu .menu-btn');
-const dropdownMenu = document.querySelector('.dropdown-menu');
-const mainMenu = document.querySelector('.main-menu');
 
-// The drop-down menu will open
-menu.addEventListener("click" , function(e){
-    e.stopPropagation();
-    dropdownMenu.classList.toggle("show");
-    mainMenu.classList.remove('show');
-});
-//  Closing the dropdown menu
-window.addEventListener("click", () => {
-    dropdownMenu.classList.remove('show');
-    mainMenu.classList.remove('show');
-});
+    const menuButton = document.querySelector('.menu .menu-btn');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const titleMainMenu = document.querySelector('.title-main-menu');
+    const titleSubMenu = document.querySelector('.title-sub-menu');
+    const clickAmazonMenu = document.querySelector('.amazon-menu');
+    const backMenuLink = document.querySelector('.back-menu-link');
 
+           // Open dropdown menu
+     menuButton.addEventListener("click", function(e) {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle("show");
+    });
+           // Close dropdown menu
+     window.addEventListener("click", () => {
+         dropdownMenu.classList.remove('show');
+         titleSubMenu.classList.remove('show');
+         titleMainMenu.classList.remove('hidden');
+    });
 
-const amazonMusicLink = document.querySelector('.amazon-music ');
-const backButton = document.querySelector('.title-main-menu a');
+       // Prevent closing the menu by clicking inside the menu
+    dropdownMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+    });
 
+        // Open submenu
+    clickAmazonMenu.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        // titleSubMenu.style.opacity = 1;
+        // titleMainMenu.style.opacity = 0;
+        dropdownMenu.classList.add('show');
+        titleSubMenu.classList.add('show');
+        titleMainMenu.classList.add('hidden');
 
-amazonMusicLink.addEventListener('click', (e) => {
+    });
+
+    // بازگشت به منوی اصلی
+backMenuLink.addEventListener("click", function (e) {
     e.preventDefault();
-    mainMenu.classList.add('show');
-    mainMenu.style.left = `${dropdownMenu.offsetWidth}px`;
+    // titleSubMenu.style.opacity = 0;
+    // titleMainMenu.style.opacity = 1;
+    titleSubMenu.classList.remove('show');
+    titleMainMenu.classList.remove('hidden');
 });
 
-backButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    mainMenu.classList.remove('show');
-});
+
+
+    
+
+
+
+
+
+
 
 
 
