@@ -1,9 +1,5 @@
 
-.deselect-all{
-    border-bottom: 1px solid var( --bs-gray-400);
-}
-
-.total{
+.total, .cart-item{
     border-top: 1px solid var( --bs-gray-400);
 }
 

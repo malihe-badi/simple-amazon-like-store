@@ -24,7 +24,7 @@ ul, li{
 /**************** language **************/
 .language-box {
     position: fixed;
-    top:8%;
+    top:10%;
     left:60%;
     width:300px;
     background-color: var(--bs-white);
@@ -41,21 +41,6 @@ ul, li{
     list-style-type: none;
     padding: 0;
 }
-
-/* .language-list li {
-    margin-bottom: 10px;
-} */
-
-/* .language-list li label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-} */
-
-/* .language-list li label:hover {
-    background-color: #f0f0f0;
-} */
-
 .language-box.show {
     opacity: 1;
     transform: translateX(0%);
@@ -64,7 +49,7 @@ ul, li{
 /******************** account  **************/
 .account-box {
     position: fixed;
-    top:8%;
+    top:10%;
     left:68%;
     width:400px;
     background-color: var(--bs-white);

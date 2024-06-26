@@ -191,13 +191,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const addToCartButton = document.querySelectorAll(".add-cart");
     const cartCountElement = document.querySelector(".basket-number");
     const alertContainer = document.querySelector(".alert-container");
-
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
     function updateCartCount(count) {
         cartCountElement.textContent = count;
     }
-
     function showMessage(message, type) {
         const icon = type === "success" ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-times-circle"></i>';
         alertContainer.innerHTML = `${icon} ${message}`;
@@ -214,64 +211,48 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 3000);
     }
 
-    function toggleCart(productId) {
-        cart = ["1","", ""]
-        const index = cart.indexOf(productId);
-        if (index === -1) {
-            cart.push(productId);
-            showMessage("Added to the cart", "success");
-            return true;
-        } else {
-            cart.splice(index, 1);
-            showMessage("Removed from the cart", "error");
-            return false;
-        }
+function toggleCart(productId, productquantity) {
+    const productInCart = cart.find(item => item.id === productId);
+    if (!productInCart) { 
+        cart.push({ id: productId, quantity: productquantity });
+        showMessage("Added to the cart", "success");
+        updateCartCount(cart.length);
+        return true;
+    } else {
+        cart = cart.filter(item => item.id !== productId); // Update the original cart array
+        showMessage("Removed from the cart", "success");
+        updateCartCount(cart.length);
+        return false;
+    }
+}
+
+addToCartButton.forEach(btn => {
+    const productId = btn.getAttribute("data-product-id");
+    const productInCart = cart.find(item => item.id === productId);
+    if (productInCart) {
+        btn.textContent = "Remove from cart";
+        btn.classList.add("in-cart");
+    } else {
+        btn.textContent = "Add to cart";
+        btn.classList.remove("in-cart");
     }
 
-    addToCartButton.forEach(btn => {
-        const productId = btn.getAttribute("data-product-id");
-        if (cart.includes(productId)) {
+    btn.addEventListener("click", function() {
+        const quantitySelect = this.previousElementSibling.querySelector("#quantity");
+        const productquantity = parseInt(quantitySelect.value, 10);
+        const isInCart = toggleCart(productId, productquantity);
+        if (isInCart) {
             btn.textContent = "Remove from cart";
             btn.classList.add("in-cart");
         } else {
             btn.textContent = "Add to cart";
             btn.classList.remove("in-cart");
         }
-
-        btn.addEventListener("click", function() {
-            const isInCart = toggleCart(productId);
-            if (isInCart) {
-                btn.textContent = "Remove from cart";
-                btn.classList.add("in-cart");
-            } else {
-                btn.textContent = "Add to cart";
-                btn.classList.remove("in-cart");
-            }
-            localStorage.setItem("cart", JSON.stringify(cart));
-            updateCartCount(cart.length);
-        });
-    });
-
-    updateCartCount(cart.length);
-});
-
-
-// کد مربوط به افزودن به سبد خرید
-document.querySelectorAll(".add-cart").forEach(button => {
-    button.addEventListener("click", function() {
-        const productId = this.getAttribute("data-product-id");
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        if (!cart.includes(productId)) {
-            cart.push(productId);
-        }
-        localStorage.setItem("cart", JSON.stringify(cart));
-        // به‌روزرسانی تعداد آیتم‌ها در سبد خرید
+        localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage with the updated cart
         updateCartCount(cart.length);
     });
 });
 
-function updateCartCount(count) {
-    const cartCountElement = document.querySelector(".basket-number");
-    cartCountElement.textContent = count;
-}
+updateCartCount(cart.length);
 
+});
