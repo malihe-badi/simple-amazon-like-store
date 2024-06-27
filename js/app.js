@@ -108,10 +108,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const cartCountElement = document.querySelector(".basket-number");
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    function updateCartCount(count) {
-        cartCountElement.textContent = count;
+    function updateCartCount() {
+        const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+        cartCountElement.textContent = totalItems;
     }
-
     updateCartCount(cart.length);
 });
 

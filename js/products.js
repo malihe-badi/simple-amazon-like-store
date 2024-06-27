@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <div  class=" buy-new">
         <div>
             <span class="p-md-3">Buy new:</span> <img class="img-circle" src="./images/dot.webp" alt="dot">
-            <p class="mt-2 fs-2 pb-5"><span class="opacity-50 fs-6">$ </span>${product.originalPrice.toFixed(2)}<span class="opacity-50 fs-6">99</span></p>
+            <p class="mt-2 fs-2 pb-5"><span class="opacity-50 fs-6">$ </span><span id="totalPrice">${product.originalPrice.toFixed(2)}</span><span class="opacity-50 fs-6">99</span></p>
             <p class="text-secondary lh-4 fs-7">$91.31 Shipping & Import Fees Deposit to Germany Details Delivery <span class="text-dark"> Wednesday, May 15</span></p>
             <div>
                 <img src="./images/locationIcon-darck.png" alt="locationIcon"><span class="fs-8 text-success mb-3">Deliver to Iran</span>
@@ -126,27 +126,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <p class="text-success fs-5 pt-3">In Stock</p>
                    <label for="quantity" class="w-100">
                     <select name="quantity" id="quantity" class="quantity pe-5 py-2 rounded-pill bg-light mb-3">
-                        <option value="1">Quantity: 1</option>
-                        <option value="2">Quantity: 2</option>
-                        <option value="3">Quantity: 3</option>
-                        <option value="4">Quantity: 4</option>
-                        <option value="5">Quantity: 5</option>
-                        <option value="6">Quantity: 6</option>
-                        <option value="7">Quantity: 7</option>
-                        <option value="8">Quantity: 8</option>
-                        <option value="9">Quantity: 9</option>
-                        <option value="10">Quantity: 10</option>
-                        <option value="11">Quantity: 11</option>
-                        <option value="12">Quantity: 12</option>
-                        <option value="13">Quantity: 13</option>
-                        <option value="14">Quantity: 14</option>
-                        <option value="15">Quantity: 15</option>
-                        <option value="16">Quantity: 16</option>
-                        <option value="17">Quantity: 17</option>
-                        <option value="18">Quantity: 18</option>
-                        <option value="19">Quantity: 19</option>
+                        ${[...Array(20).keys()].map(i => `<option value="${i+1}">Quantity: ${i+1}</option>`).join('')}
                     </select>
-              
             </label>
              <button class="add-cart btn rounded-pill bg-warning px-5 w-100" data-product-id="${product.id}">Add to cart</button>
            
@@ -179,6 +160,15 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
                 </div>
             `;
+            
+            const quantitySelect = document.querySelector("#quantity");
+            const totalPriceElement = document.querySelector("#totalPrice");
+
+            quantitySelect.addEventListener("change", function() {
+                const quantity = parseInt(this.value, 10);
+                const totalPrice = (product.originalPrice * quantity).toFixed(2);
+                totalPriceElement.textContent = totalPrice;
+            });
         }
          else {
             productDetails.innerHTML =`<p class="text-center">Product not found.</p>`;
@@ -188,13 +178,15 @@ document.addEventListener("DOMContentLoaded", function() {
     displayProductDetails(idParams);
 
     // Add to cart functionality
-    const addToCartButton = document.querySelectorAll(".add-cart");
     const cartCountElement = document.querySelector(".basket-number");
     const alertContainer = document.querySelector(".alert-container");
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    function updateCartCount(count) {
-        cartCountElement.textContent = count;
+
+    function updateCartCount() {
+        const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+        cartCountElement.textContent = totalItems;
     }
+
     function showMessage(message, type) {
         const icon = type === "success" ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-times-circle"></i>';
         alertContainer.innerHTML = `${icon} ${message}`;
@@ -211,49 +203,49 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 3000);
     }
 
-function toggleCart(productId, productquantity) {
-    const productInCart = cart.find(item => item.id === productId);
-    if (!productInCart) { 
-        cart.push({ id: productId, quantity: productquantity });
-        showMessage("Added to the cart", "success");
-        updateCartCount(cart.length);
-        return true;
-    } else {
-        cart = cart.filter(item => item.id !== productId); // Update the original cart array
-        showMessage("Removed from the cart", "success");
-        updateCartCount(cart.length);
-        return false;
-    }
-}
-
-addToCartButton.forEach(btn => {
-    const productId = btn.getAttribute("data-product-id");
-    const productInCart = cart.find(item => item.id === productId);
-    if (productInCart) {
-        btn.textContent = "Remove from cart";
-        btn.classList.add("in-cart");
-    } else {
-        btn.textContent = "Add to cart";
-        btn.classList.remove("in-cart");
+    function toggleCart(productId, productquantity) {
+        const productInCart = cart.find(item => item.id === productId);
+        if (!productInCart) { 
+            cart.push({ id: productId, quantity: productquantity });
+            showMessage("Added to the cart", "success");
+            return true;
+        } else {
+            cart = cart.filter(item => item.id !== productId); // Update the original cart array
+            showMessage("Removed from the cart", "success");
+            return false;
+        }
     }
 
-    btn.addEventListener("click", function() {
-        const quantitySelect = this.previousElementSibling.querySelector("#quantity");
-        console.log(quantitySelect);
-        const productquantity = parseInt(quantitySelect.value, 10);
-        const isInCart = toggleCart(productId, productquantity);
-        if (isInCart) {
+    const addToCartButtons = document.querySelectorAll(".add-cart");
+
+    addToCartButtons.forEach(btn => {
+        const productId = btn.getAttribute("data-product-id");
+        const productInCart = cart.find(item => item.id === productId);
+        if (productInCart) {
             btn.textContent = "Remove from cart";
             btn.classList.add("in-cart");
         } else {
             btn.textContent = "Add to cart";
             btn.classList.remove("in-cart");
         }
-        localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage with the updated cart
-        updateCartCount(cart.length);
+
+        btn.addEventListener("click", function() {
+            const quantitySelect = this.previousElementSibling.querySelector("#quantity");
+            const productquantity = parseInt(quantitySelect.value, 10);
+            const isInCart = toggleCart(productId, productquantity);
+            if (isInCart) {
+                btn.textContent = "Remove from cart";
+                btn.classList.add("in-cart");
+            } else {
+                btn.textContent = "Add to cart";
+                btn.classList.remove("in-cart");
+            }
+            localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage with the updated cart
+            updateCartCount();
+        });
     });
-});
+
 
 updateCartCount(cart.length);
-
+ 
 });
