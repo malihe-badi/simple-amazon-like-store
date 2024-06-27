@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
             <p class="text-success fs-5 pt-3">In Stock</p>
                    <label for="quantity" class="w-100">
-                    <select name="quantity" id="quantity" class="pe-5 py-2 rounded-pill bg-light mb-3">
+                    <select name="quantity" id="quantity" class="quantity pe-5 py-2 rounded-pill bg-light mb-3">
                         <option value="1">Quantity: 1</option>
                         <option value="2">Quantity: 2</option>
                         <option value="3">Quantity: 3</option>
@@ -239,6 +239,7 @@ addToCartButton.forEach(btn => {
 
     btn.addEventListener("click", function() {
         const quantitySelect = this.previousElementSibling.querySelector("#quantity");
+        console.log(quantitySelect);
         const productquantity = parseInt(quantitySelect.value, 10);
         const isInCart = toggleCart(productId, productquantity);
         if (isInCart) {
