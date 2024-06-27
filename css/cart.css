@@ -1,7 +1,11 @@
 
-.total, .cart-item{
+.total, .cart-item {
     border-top: 1px solid var( --bs-gray-400);
 }
+/* .shopping-basket{
+    border-bottom: 1px solid var( --bs-gray-400);
+} */
+
 .cart-items-none{
     display: none !important;
 }
