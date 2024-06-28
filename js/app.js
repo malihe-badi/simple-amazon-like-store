@@ -1,5 +1,5 @@
 
-// ************************************************* product data ************************************* 
+// ******************************************* Product data *****************************
 const productsData = [
     {
         id: 1,
@@ -70,9 +70,10 @@ localStorage.setItem("productsData" ,JSON.stringify(productsData));
 const products = JSON.parse(localStorage.getItem("productsData"));
 const productslist = document.querySelector(".products-list");
 
+//********************** Show products on the page ****************
+
 function displayProducts (products){
     productslist.innerHTML = '';
- // Add products to their respective category sections
      products.forEach(product => { 
         const productElement = document.createElement("div");
         productElement.className = "product col-md-2 bg-white rounded-1 g-";
@@ -95,14 +96,12 @@ function displayProducts (products){
                     productElement.addEventListener("click",function(){
                     window.location.href = `./products.html?id=${product.id}`;
                });
-        //   categorySection.appendChild(productElement);
           productslist.appendChild(productElement);
      });
 };
-        // Display all products initially
         displayProducts(products);
 
-// ******************************** Local storage cart ***************************
+// ******************************** Update the number of purchases in the shopping cart in the header section ***************************
 
 document.addEventListener("DOMContentLoaded", function() {
     const cartCountElement = document.querySelector(".basket-number");

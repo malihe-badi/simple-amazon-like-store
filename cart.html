@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
-  <header id="header container-fluid">
+  <header>
     <nav class="nav text-light row d-flex justify-content-lg-center pt-md-2">
       <div class="col-md-2 d-flex ">
           <div class="col-md-6 pt-md-3">
@@ -22,9 +22,11 @@
           </div>
       </div>
      <div class="col-md-6 p-md-1 ">
+      <!--------------------------------- Search form ------------------------>
       <form class="input-group pt-sm-2 " id="form">
           <button  type="button" class="category bg-light btn ">All<i class="fas fa-caret-down ps-1"></i> 
           </button>
+          <!---------------------- Category section ---------------------------->
                <ul class="dropdown-category bg-light rounded-2 text-dark p-0 ">
                    <li data-select="All"><a href="#">All</a></li>
                    <li data-select="Mobiles"><a href="#">Mobiles</a></li>
@@ -42,6 +44,7 @@
               <span class="fw-normal fs-7">EN</span>
               <i class="fas fa-caret-down opacity-50"></i>
               </button>
+              <!--------------------------Choose language --------------------->
                         <div class="language-box">
                           <ul class="language-list">
                              <h4>Choose a Language</h4>
@@ -90,6 +93,7 @@
                 <span class="fw-normal fs-7 ">Hello,sign in</span>
                 <p class="fw-bold fs-7">Account & Lists <i class="fas fa-caret-down  opacity-50"></i></p>
                </button>
+               <!--------------------------  Sing in section ---------------------------->
                 <div class="bg-white account-box border-bottom-info">
                   <button class="btn rounded-pill bg-warning px-5 w-75 text-center"> Sing in </button>
                   <p class="p-md-2 text-center fs-7">New customer? <a class="text-success" href="">Start here</a></p>
@@ -124,10 +128,9 @@
                 <span class="fw-normal fs-8">Returns</span>
                 <p class="fw-bold fs-7 m-0">& Orders</p>
               </button>
-         
-      
              </div>
          </div>
+         <!-------------------------------- Cart section -------------------->
           <div class="col-sm-1 m-0">
             <a href="cart.html" class="view-cart text-light">
               <div><span id="cart-count" class="basket-number ms-3 text-danger fw-bold">0</span></div> 
@@ -135,9 +138,6 @@
             </a>
       </div>
     </nav>
-  
-  
-  
       <!--------------------------------- menu ----------------------------->
       <div class="menu d-md-flex">
         <button type="button" class="btn menu-btn text-light fs-6">
@@ -148,6 +148,7 @@
                 <i class="fas fa-user-circle fs-1 text-light py-md-3 ps-md-5"></i>
                 <p class="fw-bold text-light py-md-4 ps-md-4 fs-5">Hello, sign in</p>
             </div> 
+            <!----------------------------- Main menu section ---------------------->
             <div class="title-main-menu"> 
                 <h2 class="fs-5 p-2">Digital Content & Devices</h2>
                 <ul>
@@ -179,6 +180,7 @@
                     <li class="py-1"><a href="#" class="text-secondary">Sign in<i class="fas fa-angle-right text-secondary"></i></a></li>
                 </ul>
             </div>
+            <!------------------------------------ Submenu section ---------------------------->
             <div class="title-sub-menu bg-light">
               <p class=" fs-5">
                   <a href="#" class="back-menu-link text-secondary"><i class="fas fa-arrow-left px-md-4"></i></a> Main Menu
@@ -206,22 +208,23 @@
           <div class="full-page">
             
           </div>
+          <!---------------------------------- main box of the shopping cart ------------------------------------->
           <div class="cart-items w-100 d-flex row justify-content-md-center p-md-5 "> 
                <div class="d-flex row">
                    <div class="col-md-9 p-md-3 rounded-4 bg-white ">
-                      <div class="m-md-4">
+                      <div class="m-md-3">
                           <h2 class="fw-bold ">Shopping Basket</h2> 
                            <button type="button" class=" deselect-all btn text-success">Deselect all items</button>  
                      </div> 
+                     <!--------------- Products section in the shopping cart ------------------>
                      <div class="cart-item bg-white p-md-2">
-                        <!-- this is for cart-item -->
                       </div>
-                               <!------------- total products--------->
-                           <div class="p-md-2 total m-md-4 justify-content-between bg-white  ">
+                               <!------------- Total products--------->
+                           <div class=" total p-md-3 justify-content-between bg-white  ">
                             <p class="fw-bold text-end total-price "></p>
                            </div>
                            </div>
-                           <!------------------ cart total ------------>
+                           <!------------------ Cart total products ------------>
                    <div class="col-md-3">
                       <div class=" bg-white rounded-4 p-md-3 ">     
                         <p class="fw-bold text-black total-price-cart"></p>

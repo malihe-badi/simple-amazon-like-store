@@ -8,28 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const totalPriceCartElement = document.querySelector(".total-price-cart");
     const deselectAll = document.querySelector(".deselect-all");
 
-    function updateCartCount() {
-        const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-        if (cartCountElement) {
-            cartCountElement.textContent = totalItems;
-        }
-        return totalItems;
-    }
+   
 
-    function updateTotalPrice() {
-        let totalPrice = 0;
-        cart.forEach(cartItem => {
-            const product = products.find(p => p.id.toString() === cartItem.id);
-            if (product) {
-                totalPrice += product.originalPrice * cartItem.quantity;
-            }
-        });
-        totalPriceElement.innerText = `Subtotal (${updateCartCount()} items): $${totalPrice.toFixed(2)}`;
-        totalPriceCartElement.innerText = `Subtotal (${updateCartCount()} items): $${totalPrice.toFixed(2)}`;
-    }
-
+    //********************************************* Display Cart Items **********************
     function displayCartItems() {
-        cartContainer.innerHTML = ''; // Clear previous content
+        cartContainer.innerHTML = '';
         const fullPage = document.querySelector(".full-page");
         if (cart.length === 0) {
             container.classList.add('cart-items-none');
@@ -87,11 +70,11 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
             updateTotalPrice();
-              
+            // *********************************** Clear all products  *****************************
             if (deselectAll) {
                 cartContainer.prepend(deselectAll);
             }
-
+            // *************************** Delete the product *****************************
             const removeButtons = document.querySelectorAll(".remove-cart");
             removeButtons.forEach(btn => {
                 btn.addEventListener("click", function() {
@@ -99,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     removeFromCart(productId, this);
                 });
             });
-
+            // **************** When we click on the delete button, it becomes permanent *******************
             const updateButtons = document.querySelectorAll(".update-cart");
             updateButtons.forEach(btn => {
                 btn.addEventListener("click", function() {
@@ -107,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     updateCart(productId);
                 });
             });
-
+            // ****************************** Update the number of products *****************************
             const quantitySelectors = document.querySelectorAll(".quantity");
             quantitySelectors.forEach(select => {
                 select.addEventListener("change", function() {
@@ -120,6 +103,8 @@ document.addEventListener("DOMContentLoaded", function() {
         updateCartCount();
     }
 
+
+    // ******************************* Remove the product from the shopping cart ***********************
     function removeFromCart(productId, button) {
         const productInCart = cart.find(item => item.id === productId.toString());
         if (productInCart) {
@@ -129,8 +114,20 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
   
-    
-    function updateCartQuantity(productId, newQuantity) {
+        //*********************************************  Update total price **************************************
+      function updateTotalPrice() {
+            let totalPrice = 0;
+            cart.forEach(cartItem => {
+                const product = products.find(p => p.id.toString() === cartItem.id);
+                if (product) {
+                    totalPrice += product.originalPrice * cartItem.quantity;
+                }
+            });
+            totalPriceElement.innerText = `Subtotal (${updateCartCount()} items): $${totalPrice.toFixed(2)}`;
+            totalPriceCartElement.innerText = `Subtotal (${updateCartCount()} items): $${totalPrice.toFixed(2)}`;
+        };
+       //  **************************************  Update cart quantity *********************************
+     function updateCartQuantity(productId, newQuantity) {
         const productInCart = cart.find(item => item.id === productId);
         if (productInCart) {
             productInCart.quantity = newQuantity;
@@ -142,10 +139,19 @@ document.addEventListener("DOMContentLoaded", function() {
     if (deselectAll) {
         deselectAll.addEventListener("click", function() {
             cart = [];
-            localStorage.setItem("cart", JSON.stringify(cart));
+            localStorage.setItem("cart", JSON.stringify(cart));~
             displayCartItems();
         });
     }
 
     displayCartItems();
+
+       //***************************** Add to cart ******************************
+    function updateCartCount() {
+        const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+        if (cartCountElement) {
+            cartCountElement.textContent = totalItems;
+        }
+        return totalItems;
+    };
 });

@@ -1,31 +1,5 @@
-// ************************************************* category *************************************  
-const categoryButton = document.querySelector(".category");
-const dropdownCategory = document.querySelector(".dropdown-category");
 
-categoryButton.addEventListener("click", function(e) {
-    e.stopPropagation();
-    dropdownCategory.classList.toggle("show");
-});
-    // filter
-    const filters = document.querySelectorAll(".dropdown-category li");
-    filters.forEach(function (filter) {
-        filter.addEventListener("click", function(e){
-            e.preventDefault();
-            const category = this.dataset.select.toLowerCase();
-          const filteredProducts = category === "all" ? products : products.filter(product => product.category === category);  
-            displayProducts(filteredProducts);
-            dropdownCategory.classList.remove("show");
-            // Update button text to selected category
-            categoryButton.innerHTML = `${this.innerText} <i class="fas fa-caret-down ps-1"></i>`; 
-      });
-//     Closing the category 
- window.addEventListener("click", (event) => {
-    if (!categoryButton.contains(event.target) && !dropdownCategory.contains(event.target)) {
-        dropdownCategory.classList.remove("show");
-    }
-});
-});
-// ***************************************search********************************
+// ************************************* Search form ********************************
 const searchForm = document.querySelector("#form");
 const inputSearch = document.querySelector("form input");
 const searchButton = document.querySelector("form .search");
@@ -43,7 +17,35 @@ searchForm.addEventListener("submit", function(e){
     }
 });
 
-//*********************************************** button language ************************************************
+// ************************************ Category section *************************************  
+const categoryButton = document.querySelector(".category");
+const dropdownCategory = document.querySelector(".dropdown-category");
+
+categoryButton.addEventListener("click", function(e) {
+    e.stopPropagation();
+    dropdownCategory.classList.toggle("show");
+});
+    //*************** filter ******************
+    const filters = document.querySelectorAll(".dropdown-category li");
+    filters.forEach(function (filter) {
+        filter.addEventListener("click", function(e){
+            e.preventDefault();
+            const category = this.dataset.select.toLowerCase();
+          const filteredProducts = category === "all" ? products : products.filter(product => product.category === category);  
+            displayProducts(filteredProducts);
+            dropdownCategory.classList.remove("show");
+            // ******* Update categories button text *************
+            categoryButton.innerHTML = `${this.innerText} <i class="fas fa-caret-down ps-1"></i>`; 
+      });
+      //*************** Closing category ***********
+ window.addEventListener("click", (event) => {
+    if (!categoryButton.contains(event.target) && !dropdownCategory.contains(event.target)) {
+        dropdownCategory.classList.remove("show");
+    }
+});
+});
+
+//********************************* Choose language ********************************
 document.addEventListener("DOMContentLoaded", function () {
     const buttonLanguage = document.querySelector(".language");
     const openBoxLanguage = document.querySelector(".language-box");
@@ -60,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-//*********************************************** button account ************************************************
+//*********************************** Sing in section *************************************
 
 document.addEventListener("DOMContentLoaded", function () {
     const buttonAccount = document.querySelector(".account");
@@ -77,10 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-
-// ******************************** dropdown menu ***************************
-
+// ******************************* dropdown menu ***************************
     const menuButton = document.querySelector('.menu .menu-btn');
     const dropdownMenu = document.querySelector('.dropdown-menu');
     const titleMainMenu = document.querySelector('.title-main-menu');
@@ -88,40 +87,33 @@ document.addEventListener("DOMContentLoaded", function () {
     const clickAmazonMenu = document.querySelector('.amazon-menu');
     const backMenuLink = document.querySelector('.back-menu-link');
 
-           // Open dropdown menu
+    //*********************** Opening main menu ***************
      menuButton.addEventListener("click", function(e) {
         e.stopPropagation();
         dropdownMenu.classList.toggle("show");
     });
-           // Close dropdown menu
+     //***********************  Closeing main menu ***************
      window.addEventListener("click", () => {
          dropdownMenu.classList.remove('show');
          titleSubMenu.classList.remove('show');
          titleMainMenu.classList.remove('hidden');
     });
 
-       // Prevent closing the menu by clicking inside the menu
-    dropdownMenu.addEventListener("click", (e) => {
+   dropdownMenu.addEventListener("click", (e) => {
         e.stopPropagation();
     });
-
-        // Open submenu
+     //*************** Opening submenu ***************
     clickAmazonMenu.addEventListener("click", function(e) {
         e.preventDefault();
         e.stopPropagation();
-        // titleSubMenu.style.opacity = 1;
-        // titleMainMenu.style.opacity = 0;
         dropdownMenu.classList.add('show');
         titleSubMenu.classList.add('show');
         titleMainMenu.classList.add('hidden');
 
     });
-
-    // بازگشت به منوی اصلی
-backMenuLink.addEventListener("click", function (e) {
+    //****************  Back  main menu ****************
+    backMenuLink.addEventListener("click", function (e) {
     e.preventDefault();
-    // titleSubMenu.style.opacity = 0;
-    // titleMainMenu.style.opacity = 1;
     titleSubMenu.classList.remove('show');
     titleMainMenu.classList.remove('hidden');
 });

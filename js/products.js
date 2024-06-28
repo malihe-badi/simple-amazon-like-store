@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const products = JSON.parse(localStorage.getItem("productsData"));
     const productDetails = document.querySelector(".product-details");
 
-    // display Product Details
+    //********************************** Display Product Details ******************************
     function displayProductDetails(productId) {
         const product = products.find(p => p.id === parseInt(productId));
         if (product) {
@@ -160,7 +160,6 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
                 </div>
             `;
-            
             const quantitySelect = document.querySelector("#quantity");
             const totalPriceElement = document.querySelector("#totalPrice");
 
@@ -170,25 +169,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 totalPriceElement.textContent = totalPrice;
             });
         }
-         else {
-            productDetails.innerHTML =`<p class="text-center">Product not found.</p>`;
-        }
     }
 
     displayProductDetails(idParams);
 
-    // Add to cart functionality
-    const cartCountElement = document.querySelector(".basket-number");
-    const alertContainer = document.querySelector(".alert-container");
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    function updateCartCount() {
-        const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-        cartCountElement.textContent = totalItems;
-    }
-
+ 
+    //********************* Display message to add or remove product ********************
+     const alertContainer = document.querySelector(".alert-container");
     function showMessage(message, type) {
-        const icon = type === "success" ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-times-circle"></i>';
+        const icon = type === "success" ? '<i class="fas fa-check-circle"></i>':'<i class="fas fa-times-circle"></i>';
         alertContainer.innerHTML = `${icon} ${message}`;
         alertContainer.className = `alert-container alert-${type}`;
         alertContainer.style.display = "block";
@@ -210,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
             showMessage("Added to the cart", "success");
             return true;
         } else {
-            cart = cart.filter(item => item.id !== productId); // Update the original cart array
+            cart = cart.filter(item => item.id !== productId); 
             showMessage("Removed from the cart", "success");
             return false;
         }
@@ -240,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 btn.textContent = "Add to cart";
                 btn.classList.remove("in-cart");
             }
-            localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage with the updated cart
+            localStorage.setItem("cart", JSON.stringify(cart)); 
             updateCartCount();
         });
     });
@@ -249,3 +238,12 @@ document.addEventListener("DOMContentLoaded", function() {
 updateCartCount(cart.length);
  
 });
+   //***************************** Add to cart ******************************
+   const cartCountElement = document.querySelector(".basket-number");
+  
+   let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+   function updateCartCount() {
+       const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+       cartCountElement.textContent = totalItems;
+   };

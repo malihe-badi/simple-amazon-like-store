@@ -2,7 +2,6 @@ body{
     background-color: var(--bs-white);
 }
 
-/* styles.css */
 #quantity{
     width: 260px;
 
@@ -25,8 +24,6 @@ body{
 .fa-check-circle{
     color: var(--bs-success);
 }
-
-
 .price{
     text-decoration: line-through;
 }
@@ -39,13 +36,11 @@ list-style-type: disc;
 }
 .product-details {
  width: 100%;
-
 }
 .img-product {
   width: 100%;
   height:auto;
   background-size: cover;
-
 }
 .border-orange{
     border:1px solid var(--bs-orange);
@@ -55,7 +50,6 @@ list-style-type: disc;
     width:130px;
     height: auto;
 }
-
 .buy-new{
     width: 300px;
     padding: 25px 15px;
@@ -74,7 +68,5 @@ list-style-type: disc;
     margin-top: 10px;
 }
 
-.message.error {
-    color: red;
-}
+
 
