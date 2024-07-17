@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //********************* Display message to add or remove product ********************
      const alertContainer = document.querySelector(".alert-container");
     function showMessage(message, type) {
-        const icon = type === "success" ? '<i class="fas fa-check-circle"></i>':'<i class="fas fa-times-circle"></i>';
+        const icon = '<i class="fas fa-check-circle"></i>';
         alertContainer.innerHTML = `${icon} ${message}`;
         alertContainer.className = `alert-container alert-${type}`;
         alertContainer.style.display = "block";

@@ -32,14 +32,16 @@ categoryButton.addEventListener("click", function(e) {
             e.preventDefault();
             const category = this.dataset.select.toLowerCase();
           const filteredProducts = category === "all" ? products : products.filter(product => product.category === category);  
+
             displayProducts(filteredProducts);
+            
             dropdownCategory.classList.remove("show");
             // ******* Update categories button text *************
             categoryButton.innerHTML = `${this.innerText} <i class="fas fa-caret-down ps-1"></i>`; 
       });
       //*************** Closing category ***********
- window.addEventListener("click", (event) => {
-    if (!categoryButton.contains(event.target) && !dropdownCategory.contains(event.target)) {
+ window.addEventListener("click", (e) => {
+    if (!categoryButton.contains(e.target) && !dropdownCategory.contains(e.target)) {
         dropdownCategory.classList.remove("show");
     }
 });
@@ -75,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("click", function (e) {
         if (!openBoxAccount.contains(e.target) && e.target !== buttonAccount) {
-            openBoxAccount.classList.remove('show');
+            openBoxAccount.classList.remove("show");
         }
     });
 });
