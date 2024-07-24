@@ -123,8 +123,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     totalPrice += product.originalPrice * cartItem.quantity;
                 }
             });
-            totalPriceElement.innerText = `Subtotal (${updateCartCount()} items): $${totalPrice.toFixed(2)}`;
-            totalPriceCartElement.innerText = `Subtotal (${updateCartCount()} items): $${totalPrice.toFixed(2)}`;
+            totalPriceElement.innerText = `Subtotal (${updateCartCount()} items):${totalPrice.toFixed(2)}`;
+            totalPriceCartElement.innerText = `Subtotal (${updateCartCount()} items):${totalPrice.toFixed(2)}`;
         };
        //  **************************************  Update cart quantity *********************************
      function updateCartQuantity(productId, newQuantity) {
